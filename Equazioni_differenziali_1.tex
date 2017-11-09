@@ -53,9 +53,10 @@
 \newcommand{\z}{\bar{z}}
 \newcommand{\n}{\bar{n}}
 
-
+\makeindex
 
 \begin{document}
+\tableofcontents
 \chapter{Distribuzioni e trasformate di Fourier}
 \section{Distribuzioni}
 le distribuzioni ( funzioni generalizzate) sono degli oggetti che generalizzano le funzione e le distribuzioni di probabilità. 
@@ -94,7 +95,7 @@ Dimostrazione
 
 $$
 \int_R \delta_a (x)\Phi(x) dx= \int_{-a}^{a}\dfrac{1}{2a}\Phi(x) dx = \dfrac{1}{2a}\left(\psi(a)-\psi(-a)\right)
-\quad \psi= \int \Phi,\quad \psi '=\Phi \blacksquare$$
+\quad \psi= \int \Phi,\quad \psi '=\Phi \qquad\blacksquare$$
 $$
 \Rightarrow \lim_{a\to 0}\int_{R}\delta_a(x)\Phi(x)dx=lim_{a\to 0}\dfrac{\psi(a)-\psi(-a)}{2a}=\psi '(0)
 $$
@@ -135,7 +136,7 @@ Si dimostri che
 \delta' (x) =-\dfrac{\delta(x)}{x}
 \end{equation}
 Si ha $$\int x\delta(x)\Phi(x)dx = \left.x\Phi(x)\right\|_{x=0}=0 \forall \Phi \Rightarrow x\delta(x)=0 $$
-$$\Rightarrow \delta(x) + x\delta ' (x) \Rightarrow \delta ' (x) = -\dfrac{\delta(x)}{x}  \blacksquare$$
+$$\Rightarrow \delta(x) + x\delta ' (x) \Rightarrow \delta ' (x) = -\dfrac{\delta(x)}{x}  \qquad \blacksquare$$
 
 Un'altra identità utile è
 \begin{equation}
@@ -1946,9 +1947,259 @@ $$
 $$
 l'ultimo integrale non è ben definito se $E\in \R \rightarrow$ regolarizza tramite $E\to E+i\epsilon,\quad \epsilon >0$
 \begin{equation}
-\Rightarrow \tilde{G}^R(\x,\y,E)=\sum_n\dfrac{\varphi_n(\x)\varphi_n^*(\y)}{E+i\epsilon - E_n}
+\Rightarrow \tilde{G}^R(\x,\y,E)=\sum_n\dfrac{\varphi_n(\x)\varphi_n^*(\y)}{E+i\epsilon - E_n}(97)
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 9/11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Abbiamo 
+\begin{equation}
+(E + i\epsilon - \hat{H}_{\x})\tilde{G}(\x,\y,E)=\sum_n \dfrac{(E + i\varepsilon - \hat{H}_{\x}) \varphi_n(\x)\varphi_n^*(\y)}{E + i\varepsilon - E_n} = \sum_n \varphi_n(\x)\varphi_n^*(\y)=\delta(\x-\y)
+\end{equation}
+Funzione di Green \underline{avanzata}: 
+$$
+G^A(\x,\y,t)
+$$
+$G^A(\x,\y,t)=0$ per t>0. Affinché la sua trasformata di fourier
+$$
+\tilde{G}^A(\x,\y,E)=\int_{-\infty}^0 dt e^{iEt/\hbar}G^A(\x,\y,t)
+$$
+esista, dobbiamo sostituire $E\to E-i\varepsilon, \varepsilon >0$
+$$
+\tilde{G}^A(\x,\y,E)=\sum_n \dfrac{\varphi_n(\x)\varphi_n^*(\y)}{E - i\varepsilon - E_n}
+$$
+Esercizio: calcolare G per l'oscillatore armonico.
+$$
+\hat{H}\varphi_n = -\dfrac{\hbar^2}{2m}\varphi''(x) + \dfrac{1}{2}m\omega^2 x^2 \varphi_n(x)=E_n\varphi_n(x)
+$$
+$$
+E_n=\hbar\omega\left(n+\dfrac{1}{2}\right);\quad n=0,1,2,\dots 
+$$
+$$
+\varphi_n(x)=(\sqrt{\pi}2^n n!)^{-\dfrac{1}{2}}\exp\left(-\dfrac{m\omega x^2}{2\hbar}\right)\cdot\underbrace{H_n\left(\left(\dfrac{m\omega}{\hbar}\right)^{\dfrac{1}{2}}x\right)}
+$$
+polinomi di Hermite
+$$
+(96)\Rightarrow -i\sum_{n=0}^\infty e^{-iE_n t/\hbar}\varphi_n(x)\varphi_n^*(y)
+$$
+$$
+=-i\sum_{n=0}^\infty e^{-i\hbar\omega(n+1/2)} \dfrac{1}{\sqrt{\pi} 2^n n!} \exp\left(-\dfrac{m\omega}{2\hbar}(x^2+y^2)\right) H_n\left(\left(\dfrac{m\omega}{\hbar}\right)^{\dfrac{1}{2}}x\right)H_n\left(\left(\dfrac{m\omega}{\hbar}\right)^{\dfrac{1}{2}}y\right)
+$$
+Usa 
+\begin{equation}
+\sum_{n=0}^\infty \dfrac{H_n (x)H_n (y)}{n!} \left(\dfrac{u}{2}\right)^n=\dfrac{1}{\sqrt{1-u^2}}\exp\{\dfrac{2u}{1+u}xy - \dfrac{u^2}{1-u^2}(x-y)^2\}(99)
+\end{equation}
+$$
+(u=e^{-i\omega t}) \Rightarrow -i\sum_{n=0}^\infty e^{-iE_n t/\hbar} \varphi_n(x)\varphi_n^*(y) = 
+$$
+$$
+-i e^{-i\omega t/2}\pi^{-\dfrac{1}{2}}\exp\left\{-\dfrac{m\omega}{2\hbar}(x^2+y^2)\right\}\dfrac{1}{\sqrt{1-e^{-2i\omega t}}}\exp\left\{\dfrac{2e^{-i\omega t}}{1+e^{-i\omega t}} \dfrac{m\omega}{\hbar}xy - \dfrac{e^{-2i\omega t}}{1-e^{-2i\omega t}}\dfrac{m\omega}{\hbar}(x-y)^2\right\}
+$$
+\begin{equation}
+=-\sqrt{\dfrac{i}{2\pi\sin \omega t}}\exp\left\{ \dfrac{i\omega t}{\hbar}\left[\dfrac{x^2+y^2}{2}\cot \omega t - xy \mathrm{cosec} \omega t\right]\right\}(100)
+\end{equation}
+"Mehler Kernel"
+
+\section{L'equazione dei telegrafisti} %ha detto lui stesso che è un nuovo paragrafo
+equazioni di Maxwell in materia, sistema CGS:
+\begin{subequations}
+\begin{equation}
+div \bar{D} = 4\pi \rho_{macr.}(101a)
+\end{equation}
+\begin{equation}
+rot \bar{H}=\dfrac{4\pi}{c}\bar{j}_{macr.} + \dfrac{1}{c}\dfrac{\partial \bar{D}}{\partial t}(101b)
+\end{equation}
+\begin{equation}
+div\bar{B}=0 (101c)
+\end{equation}
+\begin{equation}
+rot\bar{E}=-\dfrac{1}{c}\dfrac{\partial \bar{B}}{\partial t}(101d)
+\end{equation}
+\end{subequations}
+Legge di materiale (caso più semplice)
+\begin{equation}
+\begin{matrix}
+\bar{D} = \varepsilon \bar{E}
+\bar{B} = \mu \bar{H}
+\end{matrix} (102)
+\end{equation}
+legge di Ohm, $\sigma$ rappresenta la conducibilità elettrica
+\begin{equation}
+\bar{j}_{macr} = \sigma \bar{E}(103)
+\end{equation}
+$$
+(101b)\Rightarrow rot Rot \bar{H}  \dfrac{4\pi}{c}rot \bar{j}_macr + \dfrac{i}{c}\dfrac{\partial}{\partial t}rot \bar{D}
+$$
+=0
+$$
+(103),(101d),(101c)\Rightarrow\overbrace{grad div \bar{H}} - \Delta \bar{H} = \dfrac{4\pi\sigma}{c}\underbrace{rot\bar{E}} - \dfrac{\varepsilon}{c^2}\dfrac{\partial^2}{\partial t^2} \bar{B}
+$$
+$-\dfrac{1}{c}\dfrac{\partial }{\partial t}\bar{B}$
+\begin{subequations}
+\begin{equation}
+\Rightarrow \Delta \bar{B}=\dfrac{4\pi\sigma \mu}{c^2}\dfrac{\partial \bar{B}}{\partial t} + \dfrac{\epsilon \mu}{c^2}\dfrac{\partial^2 \bar{B}}{\partial t?2}(104a)
+\end{equation}
+\text{equazione dei telegrafisti}
+$$
+(101d)\Rightarrow rot rot \bar{E} = -\dfrac{1}{c}\dfrac{\partial}{\partial t}rot\bar{B}=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}rot \bar{H}
+$$
+$$
+(101b)=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}\left(\dfrac{4\pi}{c}\sigma \bar{E} + \dfrac{\epsilon}{c}\dfrac{\partial}{\partial t}\bar{E}\right)=grad\underbrace{div \bar{E}} - \Delta \bar{E}
+$$
+\text{=0 se $j_{macr}=0$}
+
+\begin{equation}
+\Rightarrow \Delta \bar{E}=\dfrac{4\pi\sigma\mu}{c^2}\dfrac{\partial \bar{E}}{\partial t} + \dfrac{\varepsilon \mu}{c^2}\dfrac{\partial^2 \bar{E}}{\partial t^2}(104b)
+\end{equation}
+\end{subequations}
+è equivalente all'equazione delle onde, con l'aggiunta del termine dissipativo.\\
+Casi limite: $\sigma=0$ equazione delle onde. $\epsilon=0$: equazione del calore con $\chi=\dfrac{c^2}{4\pi \sigma \mu}$
+
+Esercizio: risolvere l'equazione dei telegrafisti $\Delta u = a\partial_t u + b \partial^2_t u$ (a,b costanti positive) nell'intervallo $0\leq x\leq L$, $t\geq 0$, con $u(0,t)=u(L,t)=0$, $u(x,0)=0$, $\dfrac{\partial u}{\partial t}(x,0) = g(x)$
+Soluzione: serie di Fourier
+$$
+u(x,t)=\sum_{n=1}^\infty u_n(t) \sin \dfrac{n\pi x}{L}
+$$
+con 
+$$
+u_n(t)=\dfrac{2}{L}\int_0^Lu(x,t)\sin \dfrac{n\pi x}{L}dx \Rightarrow -\dfrac{n^2\pi^2}{L^2}u_n(t)=au_n'(t) + b u_n''(t)
+$$
+
+ansatz $u_n(t)=\alpha e^{\lambda_n t}$
+$$
+\Rightarrow -\dfrac{n^2\pi^2}{L^2}=a\lambda_n + b \lambda_n^2
+$$
+$$
+\Rightarrow \lambda_n = -\dfrac{a}{2b} \pm \sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}\equiv \lambda_n^\pm
+$$
+$\rightarrow$ comportamento oscillatorio se $\dfrac{n^2\pi^2}{L^2}>\dfrac{a^2}{4b}$
+$$
+u_n(t)=\alpha_n^+ e^{\lambda_n^+ t} + \alpha_n^-e^{\lambda_n^- t}
+$$
+$$
+u(x,0)=0 \Rightarrow u_n(0)=0 \Rightarrow \alpha_n^- = \alpha_n^+
+$$
+$$
+\Rightarrow u(x,t)=\sum_{n=1}^\infty\alpha_n^+(e^{\lambda_n^+ t}-e^{\lambda_n^- t})\sin\dfrac{n\pi x}{L}
+$$
+$$
+\dfrac{\partial u(x,t)}{\partial t} =\sum_{n=1}^\infty \left(\lambda_n^+ e^{\lambda_n^+ t}-\lambda_n^-e^{\lambda_n^- t}  \right)\sin \dfrac{n\pi x}{L}
+$$
+$$
+\left.\dfrac{\partial u(x,t)}{\partial t}\right|_{t=0}= \sum_{n=1}^\infty \alpha_n^+(\lambda_n^+ - \lambda_n^-)\sin\dfrac{n\pi x}{L} =: g(x) = \sum_{n=1}^\infty g_n \sin \dfrac{n\pi x}{L}
+$$
+$$
+\alpha_n^+ = \dfrac{g_n}{\lambda_n^+ - \lambda_n^-}=\dfrac{g_n}{2\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}}=\dfrac{1}{2\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}} \dfrac{2}{L}\int_{0}
+^{L}g(x')\sin\dfrac{n\pi x'}{L} dx'
+$$
+
+e quindi
+
+$$
+u(x,t)=\dfrac{1}{L}\int_0^L dx' \sum_{n=1}^\infty \dfrac{e^{\lambda_n^+ t} - e^{\lambda_n^- t}}{\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}}\sin\dfrac{n\pi x'}{L}\sin \dfrac{n\pi x}{L}g(x')=\int_0^L G(x,x',t)g(x')dx'
+$$
+
+con la funzione di Green
+$$
+G(x,x',t)=\dfrac{1}{L} \sum_{n=1}^\infty \dfrac{e^{\lambda_n^+ t} - e^{\lambda_n^- t}}{\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}}\sin\dfrac{n\pi x'}{L}\sin \dfrac{n\pi x}{L}
+$$
+N.B. se esiste $n_0$ tale che
+$$
+\lambda_{n_0}^+ = \lambda_{n_0}^-
+$$
+cioè 
+$$
+\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}=0
+$$
+scrivi
+$$
+\sqrt{\dfrac{a^2}{4b^2}-\dfrac{n^2\pi^2}{L^2 b}}= \dfrac{e^{\left(-\dfrac{a}{2b}+\sqrt{\cdots}\right)t}- e^{\left(-\dfrac{a}{2b}-\sqrt{\cdots}\right)t}}{\sqrt{\cdots}}
+$$
+$$
+\dfrac{e^{-\dfrac{at}{2b}} 2\sinh (\sqrt{\cdots} t)}{\sqrt{\cdots}}\xrightarrow{\sqrt{\cdots}\to 0} \dfrac{e^{-\dfrac{at}{2b}}2\sqrt{\cdots}t}{\sqrt{\cdots}}=2te^{-\dfrac{at}{2b}}
+$$
+
+\chapter{Classificazione delle equazioni differenziali alle derivate parziali lineari del 2 ordine}
+per semplicità ci limitiamo alle equazioni in 2 variabili, 
+\begin{equation}
+a_{11}(x,y)u_{xx} + 2a_{12}(x,y)u_{xy} a_{22}(x,y)u_{yy} + b_{1}(x,y)u_{x} + b_2(x,y)u_y + c(x,y)u = d(x,y) (105)
+\end{equation}
+La classificazione è basata sulla sola parte contenente le derivate seconde, $a_{11}u_{xx} + 2a_{12}(x,y)u_{xy} a_{22}(x,y)u_{yy}$, detta \underline{parte principale} dell'equazione.\\
+\underline{Definizione}: Sia $\delta(x,y)=a_{12}^2 - a_{11}a_{22}$, il \underline{discriminante} della parte principale\\
+Se $\delta >0$ l'equazione (105) si dice \underline{iperbolica}\\
+Se $\delta =0$ l'equazione (105) si dice \underline{parabolica}\\
+Se $\delta <0$ l'equazione (105) si dice \underline{ellittica}\\
+\underline{N.B.} la definizione si estende anche alle equazioni \underline{quasilinearli} (nelle quali i coefficienti $a_{ij}$ possono dipendere anche da $u, u_x,u_y$) se si riesce a stabilire il segno di $\delta$.\\
+Esempio: \underline{superfici minime}\\
+Considera superficie in $\R^3$ definita da $z=u(x,y)$, $x,y \in \Omega \subset \R^2$
+%immagine superfici minime
+$$
+\R^3 \ni \x = \left( \begin{matrix}
+x\\
+y\\
+u(x,y)
+\end{matrix}\right)
+$$
+vettori tangenti:
+$$
+\partial_x \x = \left( \begin{matrix}
+1\\
+0\\
+u_x
+\end{matrix}\right) ,\quad 
+\partial_y \y = \left( \begin{matrix}
+0\\
+1\\
+u_y
+\end{matrix}\right)
+$$
+vettore normale
+$$
+\bar{N}=\partial_x \x \times \partial_y\y=\left| \begin{matrix}
+e_x & e_y & e_z \\
+1 & 0 & u_x \\
+0 & 1 & u_y
+\end{matrix}\right| = e_z-u_xe_x - u_y e_y = \left( \begin{matrix}
+-u_x \\
+-u_y \\
+1
+\end{matrix}\right)
+$$
+
+Elemento di superficie:
+$$
+dA = |\bar{N}|dxdy=\sqrt{u_x^2 u_y^2 +1}dxdy 
+$$
+
+$\Rightarrow$ area della superficie:
+\begin{equation}
+A=\int_{\Omega} \sqrt{1+(\nabla u)^2} dxdy\equiv \int_{\Omega} \mathcal{L}dxdy (106)
+\end{equation}
+
+Superfici minime: $\delta A=0$
+Equazione di Eulero-Lagrange:
+\begin{equation}
+\partial_i \dfrac{\mathcal{L}}{\partial \partial_i u}-\dfrac{\partial \mathcal{L}}{u}=0 (107)
+\end{equation}
+(somma su i da 1 a 2 sottintesa)
+$$
+\partial_i=\dfrac{\partial}{\partial_i} \qquad i=1,2 \qquad x_1=x,\quad x_2=y
+$$
+[paragona con $\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{u}}-\dfrac{\partial\mathcal{L}}{\partial u}=0$]
+$$
+(107)\Rightarrow \partial_i \left( \dfrac{\partial_i u}{\sqrt{1+(\nabla u)^2}}\right)=0
+$$
+%pezzo che non ricordo dove vada, credo qui.
+$$
+\dfrac{\partial\mathcal{L}}{\partial \partial_i u} = \dfrac{1}{2}(1 +(\nabla u)^2)^{-\dfrac{1}{2}} 2\partial_i u=\dfrac{\partial_i u}{\sqrt{(1+(\nabla u)^2}}, \qquad \dfrac{\partial \mathcal{L}}{\partial u}=0 
+$$
+oppure
+\begin{equation}
+\nabla \cdot \left( \dfrac{\partial_i u}{\sqrt{1+(\nabla u)^2}}\right)=0 (108)
+\end{equation}
+"equazione delle superfici minime"
 
 
 
@@ -2024,15 +2275,6 @@ $$
 $$
 \Rightarrow R^2 = b^2 - \dfrac{R^4}{r_0^2} + \dfrac{R^2}{r_0^2}(r_0^2 + R^2 - a^2) \implies \dfrac{R}{r_0^2}a^2 = b^2 \implies \dfrac{b}{a}=\dfrac{R}{r_0} \qquad \checkmark
 $$
-
-
-
-
-
-
-
-
-
 
 \end{document}
 
