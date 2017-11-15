@@ -2201,6 +2201,199 @@ oppure
 \end{equation}
 "equazione delle superfici minime"
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 15/11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(Senza usare la (107):
+$$
+\delta\mathcal{L}=\delta\sqrt{1+(\nabla u)^2}=\dfrac{1}{2}\left(1+(\nabla u)^2\right)^{-\dfrac{1}{2}}2\nabla u \underset{\nabla \delta u}{\underbrace{\delta\nabla u}} \overset{\text{int. parti}}{\underset{\delta u|_{bordo}=0}{\longrightarrow}}
+ -\delta u \nabla \left(\dfrac{\nabla u}{\sqrt{1+(\nabla u)^2}}\right)\overset{!}{=}0
+$$
+$$
+(108)\Leftrightarrow \partial_i \left( \dfrac{\partial_i u}{\sqrt{1+(\nabla u)^2}}\right) =0 \Rightarrow \dfrac{\partial_i \partial_i u}{\sqrt{1+(\nabla u)^2}} + \partial_i u \left(-\dfrac{1}{2}\right) (1+(\nabla u)^2)^{-\frac{3}{2}} \cdot \underset{\partial_i(\partial_j u \partial_j u)}{\underbrace{\partial_i (\nabla u)^2}} =0
+$$
+$$
+\partial_i(\partial_j u \partial_j u)=2(\partial_i\partial_j u)\partial_j u 
+$$
+$$
+\Rightarrow (1+\underset{(\partial_x u)^2 + (\partial_y u)^2}{\underbrace{(\nabla u)^2}})\underset{\partial_x^2 u + \partial_y^2 u}{\underbrace{\Delta u}} =- \partial_x u \partial_x u \partial_x^2 u - \partial_x u\partial_y u \partial_x\partial_y u - \partial_yu \partial_x u \partial_y \partial_x u - \partial_y u\partial_y u \partial_y^2 u =0
+$$
+$$
+\Rightarrow u_{xx} + u_{yy} + u_x^2 u_{yy} + u_y^2 u_{xx} - 2u_xu_y u_{xy}=0
+$$
+\begin{equation}
+\Rightarrow (1+u_y^2)u_{xx} + (1+u_x^2) u_{yy} - 2u_x u_y u_{xy}=0 (108')
+\end{equation}
+$$
+a_{11}=1+u_y^2, \qquad a_{22}=1+u_x^2, \qquad a_{12}=-u_x u_y
+$$
+$$
+\delta = a_{12}^2 -a_{11}a_{22} = u_x^2 u_y^2 - (1+u_x^2 u_y^2 + u_x^2u_y^2)=-(1+(\nabla u)^2) <0
+$$
+$\Rightarrow$  equazione ellittica
+
+def. $ A:=\left(\begin{matrix}
+a_{11} & a_{12}\\
+a_{12} & a_{22}
+\end{matrix}\right)
+$, $det A=-\delta$\\
+iperbolica ($\delta >0$): $detA<0$, 2 autovalori di segno opposto\\
+parabolica ($\delta =0$): 1 autovalore  =0\\
+ellittica ($\delta <0$): 2 autovalori di segno uguale\\
+$\grave{E}$ il parallelismo col comportamento della forma quadratica generata da A a suggerire la medesima denominazione delle coniche. \\
+Esempi:\\
+Equazioni ellittiche: laplace, Poisson (parte principale $\Delta u$)\\
+Equazioni paraboliche: equazione del calore $\partial_t u = \chi \Delta u$ nel caso di 2 variabili: $\partial_t u = \chi \partial_x^2 u \Rightarrow a_{11}=\chi, \quad a_{12}=0 = a_{22} $\\
+Iperboliche: equazione delle onde e dei telegrafisti ( quest'ultima per $\epsilon \neq 0$, altrimenti è parabolica), equazione di Klein-Gordon.
+
+\section{Il problema di Cauchy}
+La classificazione ha una prima motivazione nel problema di Cauchy: trovare una funzione $u\in C^2$ che soddisfi la (105) e i dati di Cauchy, ossia:
+\begin{equation}
+u|_{\gamma}=\Phi|_{\gamma}, \quad \left.\dfrac{\partial u}{\partial n}\right|_{\gamma}=\left.\Psi\right|_{\gamma} (109)
+\end{equation}
+
+dove $\Phi$, $\Psi$ sono funzioni assegnate e $\gamma$ è una data urva regolare con normale $\bar{n}$, $\dfrac{\partial n}{\partial n}=\bar{n}\cdot\bar{\nabla} u$.\\
+%immagine curva regolare con normale%
+Possibile modo di tentare di risolvere il problema: supporre che le $a_{ij}$, la $\gamma$ e i dati $\Phi$, $\Psi$ siano analitici e cercare \\
+i) di calcolare tutte le derivate di u su $\gamma$\\
+ii) di dimostrare che lo sviluppo di Taylor di u è convergente in un intorno di $\gamma$.\\
+Se il procedimento ha successo si è costruita una soluzione analitica. \\
+Questo è l'obiettivo del \underline{teorema di Cauchy - Kowalevski}: se i coefficienti $a_{ij}$, $b_i$, c, d sono analitici in un dominio D, se $\gamma \subset D$ è analitica e i dati di Cauchy $\Phi$, $\Psi$ sono analitici in D, il problema di cauchy (105) con dati iniziali (109) ammette una e una sola soluzione analitica in un opportuno intorno $I\subset D$ di $\gamma$, purché la normale $\bar{n}$ a $\gamma$ verifichi la condizione 
+\begin{equation}
+\bar{n}\cdot A \bar{n}\neq 0 (110).
+\end{equation}
+(senza dim.)\\
+$\rightarrow$ la (110) chiama in causa la classificazione.
+Il ruolo della (110) è quello di consentire il calcolo delle derivate seconde:
+$$
+\bar{n}\equiv (\alpha,\beta)
+$$
+Deriva tangenzialmente il primo dato di cauchy
+%immagine derivata tangenzialmente gamma%
+$$
+\dfrac{\partial}{\partial\bar{\tau}} \equiv \bar{\tau}\cdot \bar{\nabla}, \qquad \bar{\tau}= (-\beta,\alpha), \qquad \left.\dfrac{\partial u}{\partial \tau}\right|_{\gamma} = \left. \dfrac{\partial \Phi}{\partial \tau}\right|_{\gamma}, \qquad \alpha^2 + \beta^2 =1
+$$
+\begin{equation}
+\Rightarrow (-\beta u_x +\alpha u_y)|_{\gamma}=\left.\dfrac{\partial \Phi}{\partial \tau}\right|_{\gamma} (111)
+\end{equation}
+Secondo dato di Cauchy:
+\begin{equation}
+(\alpha u_x + \beta u_y)|_{\gamma} = \Psi|_{\gamma} (112)
+\end{equation}
+$$
+(111),(112) \underset{\alpha^2 + \beta^2 \neq 0}{\implies} 
+$$
+\begin{eqnarray}
+u_x|_{\gamma}=p_0(s),\\
+u_y|_{\gamma}=q_0(s) (113)
+\end{eqnarray}
+dove $p_0$, $q_0$ sono espresse tramite i dati e s è il parametro naturale su $\gamma$ (lunghezza della curva).\\
+Deriva (113) lungo $\gamma$:
+$$
+\bar{\tau}\cdot \bar{\nabla} u_x|_{\gamma}= p_0'(s)
+$$
+$$
+\bar{\tau}\cdot \bar{\nabla}=\dfrac{d}{ds}
+$$
+$$
+\bar{\tau}\cdot \bar{\nabla}u_y|_{\gamma}=q_0'(s),
+$$
+$$
+\Leftrightarrow \left\{\begin{matrix}
+(-\beta u_{xx} + \alpha u_{xy})|_{\gamma}=p_0'\\
+(-\beta u_{xy} + \alpha u_{yy})|_{\gamma}=q_0'
+\end{matrix}\right.
+$$
+Anche la parte principale nella (105) è esprimibile su $\gamma$ in base ai dati, perchè tutti i termmini rimanenti sono calcolabili:
+$$
+(a_{11}u_{xx}+2a_{12}u_{xy}+a_{22}u_{yy})|_{\gamma}=r_0(s)
+$$
+$\Rightarrow$ sistema di 3 equazioni lineare con determinante
+\begin{equation}\left| \begin{matrix}
+
+a_{11} & 2a_{12} & a_{22}\\
+-\beta & \alpha & 0 \\
+0 & -\beta & \alpha 
+\end{matrix}\right| = \bar{n}\cdot A \bar{n}(114)
+\end{equation}
+$\Rightarrow$ la condizione (110) consente di calcolare le derivate seconde. Nello stesso modo di calcolano, sempre grazie alla (110), tutte le derivate successive.\\
+Interpretazione geometrica della negazione della (110)?
+\begin{equation}
+\bar{n}\cdot A\bar{n}=a_{11}\alpha^2+2a_{12}\alpha\beta + a_{22}\beta^2=0 (115)
+\end{equation}
+Autovalori di A: $\underset{\in\R}{\underbrace{\lambda_1,\lambda_2}}$; con autovettori ortogonali $\bar{\Theta_1},\bar{\Theta_2}$ (A simmetrica).
+$$
+\bar{n}=: \eta_1 \bar{\Theta_1} + \eta_2\bar{\Theta_2} \Rightarrow \bar{n}\cdot A \bar{n}=\lambda_1\eta_1^2 + \lambda_2\eta_2^2
+$$
+$\rightarrow$ nel caso ellittico, questo è sempre $\neq 0$.\\
+Caso parabolico: $A\bar{n}=0$ per $\bar{n}$ nell'autospazio corrispondente all'autovalore nullo.\\
+Caso iperbolico: $\bar{n}\cdot A\bar{n} = 0$ per $\dfrac{\eta_1}{\eta_2}=\pm \sqrt{\left|\dfrac{\lambda_1}{\lambda_2}\right|} \rightarrow$ 2 campi vettoriali
+$$
+\bar{w}_1 = \sqrt{|\lambda_2|}\bar{\Theta}_1 + \sqrt{|\lambda_1|}\bar{\Theta}_2, \qquad (\eta_2=\sqrt{|\lambda_1|}, \eta_1=\sqrt{|\lambda_2|})
+$$ 
+$$
+\bar{w}_2 = \sqrt{|\lambda_2|}\bar{\Theta}_1 + \sqrt{|\lambda_1|}\bar{\Theta}_2, \qquad (\eta_2=\sqrt{|\lambda_1|}, \eta_1=-\sqrt{|\lambda_2|})
+$$
+$\cdot$ curve $\perp$ a questi campi:
+$$
+\chi_{1,2}(x,y)=\text{cost}
+$$
+%immagine curva perp%
+
+$\implies \bar{n} \propto \bar{\nabla}\chi \Rightarrow (\alpha,\beta) \propto (\chi_x, \chi_y)$ e quindi (115) $\Rightarrow$
+\begin{equation}
+a_{11}\chi_x^2 + 2a_{12}\chi_x\chi_y + a_{22}\chi_y^2 =0 (116)
+\end{equation}
+Poni $\chi =: f(x)-y \Rightarrow \chi_x = f', \quad \chi_y=-1 $
+$$
+(116)\Rightarrow a_{11}f'^2 - 2 a_{12}f' + a_{22}=0 (116')
+$$
+equazione di 2 grado per f'.\\
+nel caso parabolico ci si riduce ad una sola famiglia, nel caso ellittico non ci sono curve di questo genere.\\
+\underline{Definizione}: le curve $\chi(x,y)=$cost. soddisfacenti la (116) si chiamano \underline{curve caratteristiche} dell'equazione (105)\\
+Esempi:\\
+i) equazione d'onda in 1+1 dimensioni
+$$
+c^2 u_{xx}-u_{tt}=0, \qquad a_{11}=c^2, \quad a_{12}=0, \quad a_{22}=-1
+$$
+$$
+(116')\Rightarrow c^2f'^2 =1 \implies f=\pm \dfrac{x}{c} + f_0
+$$
+$$
+\chi=f(x) - t= \pm \dfrac{x}{c}+f_0 -t \overset{!}{=}cost \Rightarrow x-x_0 \pm c(t-t_0)=0
+$$
+ii) equazione del calore 
+$$
+\mathcal{H}u_{xx}- u_t=0, \qquad a_{11}=\mathcal{H}, \quad a_{12}=a_{22}=0
+$$
+$$
+(116')\Rightarrow \mathcal{H} f'^2 =0 \Rightarrow f=cost=:f_0, \quad \chi = f_0-t=cost \Rightarrow t=cost. \text{ho delle rette}
+$$
+-Cambiamento di coordinate:
+Sia $\xi=\xi(x,y)$, $\eta=\eta(x,y)$ cambiamento di coordinate con determinante Jacobiano $\neq 0$.
+$$
+v(\xi,\eta):=u(x,y)
+$$
+Come si trasforma la parte principale della (105)?
+$$
+u_x=v_\xi \xi_x + v_\eta \eta_x,\quad u_y=v_\xi \xi_y + v_\eta \eta_y
+$$
+$$
+u_{xx}=v_{\xi \xi}\xi_x^2 + 2v_{\xi\eta}\xi_x\eta_x + v_{\eta\eta}\eta_x^2 + v_xi\eta_{xx} +v_\eta \eta_{xx}
+$$
+$$
+u_{xy}= v_{\xi \xi}\xi_x\xi_y + 2v_{\xi\eta}(\xi_x\eta_y + \xi_y\eta_x) + v_{\eta\eta} \eta_x\eta_y + v_\xi \xi_{xy} + v_\eta \eta_{xy}
+$$
+$$
+u_{yy}= v_{\xi\xi }\xi_y^2 + 2v_{\xi\eta}\xi_y\eta_y + v_{\eta\eta}\eta_y^2 + v_\xi \xi_{yy} + v_\eta \eta_{yy}
+$$
+$$
+\dfrac{\partial}{\partial x} = \dfrac{\partial \xi}{\partial x}\dfrac{\partial}{\partial \xi} + \dfrac{\partial \eta}{\partial x}\dfrac{\partial}{\partial \eta}
+$$
+$$
+\dfrac{\partial}{\partial y} = \dfrac{\partial \xi}{\partial y}\dfrac{\partial}{\partial \xi} + \dfrac{\partial \eta}{\partial y}\dfrac{\partial}{\partial \eta}
+$$
+
 
 
 
