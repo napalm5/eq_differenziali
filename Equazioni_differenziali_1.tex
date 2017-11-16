@@ -2393,6 +2393,172 @@ $$
 $$
 \dfrac{\partial}{\partial y} = \dfrac{\partial \xi}{\partial y}\dfrac{\partial}{\partial \xi} + \dfrac{\partial \eta}{\partial y}\dfrac{\partial}{\partial \eta}
 $$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% inizio lezione 16/11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$\rightarrow$ la parte principale della (105) diventa $ \tilde{a}_{11} v_{\xi\xi} + 2 \tilde{a}_{12}v_{\xi\eta} + \tilde{a}_{22}v_{\eta\eta}$, con 
+$$
+\tilde{a}_{11}= a_11 \xi_x^2 + 2a_{12}\xi_x\xi_y + a_{22} \xi_y^2 = \bar{\nabla}\xi \cdot A\bar{\nabla}\xi
+$$
+$$
+\tilde{a}_{12}= a_11 \xi_x\eta_x + a_{12}(\xi_x\eta_y+\xi_y\eta_x) + a_{22} \xi_y\eta_y = \bar{\nabla}\eta \cdot A\bar{\nabla}\xi = \bar{\nabla}\xi \cdot A\bar{\nabla}\eta
+$$
+$$
+\tilde{a}_{22}= a_11 \eta_x^2 + 2a_{12}\eta_x\eta_y + a_{22} \eta_y^2 = \bar{\nabla}\eta \cdot A\bar{\nabla}\eta
+$$
+\begin{equation}
+\implies \tilde{A} = J A J^{-1}, \quad \text{J = Jacobiano} (117)
+\end{equation}
+$$
+\Rightarrow det \tilde{A} = det A\underset{>0}{\underbrace{(det J)^2}}
+$$
+$\Rightarrow$ le trasformazioni invertibili di coordinate lasciano invariante il carattere dell'equazione.\\
+Esempio: equazione d'onda $c^2u_{xx} - u_{tt}=0$. Prendi $\xi=x-ct$, $\eta = x+ct$, ("coordinate di cono luce")  poni $v(\xi,\eta) = u(x,y) \implies \tilde{A}=\left(\begin{matrix}
+0 & 1\\
+1 & 0
+\end{matrix}\right)$, e l'equazione diventa $v_{\xi\eta}=0$. ($\rightarrow$ soluzione generale: $v(\xi,\eta)=v_1(\xi) + v_2(\eta)$, con $v_1$, $v_2$ funzioni arbitrarie.\\
+\underline{- riduzione alla forma canonica}:
+forme canoniche:\\
+$u_{xx} + u_{yy} \quad$ ellittica\\
+$u_{xx} (- u_t) \quad$ parabolica\\
+$u_{xx} - u_{tt} \quad$ iperbolica (in alternativa $u_{xt}$)\\
+N.B. costanti come per esempio $c^2$ in $c^2 u_{xx}-u_{tt}$ possno essere riassobite nella scala delle variabili.\\
+Trasformazione di una parte principale generica nella forma canonica:\\
+\underline{Caso iperbolico}:\\
+L'esempio sopra suggerisce di prendere le curve caratteristiche come nuove linee coordinate $\xi=\chi_1(x,y),\quad \eta=\chi_2(x,y)$
+%questa matrice era scritta in forma piu compatta, con uan croce a separare i 4 blocchi
+$$
+(117)\Rightarrow \tilde{A}\left(\begin{matrix}
+a_{11}\chi_{1x}^2 + 2a_{12}\chi_{1x}\chi_{1y} + a_{22}\chi_{1y}^2  & a_{11}\chi_{1x}\chi_{2x} + a_{12}(\chi_{1x}\chi_{2y} + \chi_{1y}\chi_{2x}) + a_{22}\chi_{1y}\chi_{2y} \\
+a_{11}\chi_{1x}\chi_{2x} + a_{12}(\chi_{1x}\chi_{2y} + \chi_{1y}\chi_{2x}) + a_{22}\chi_{1y}\chi_{2y}  & a_{11}\chi_{2x}^2 + 2a_{12}\chi_{2x}\chi_{2y} + a_{22}\chi_{2y}^2
+\end{matrix} \right)=
+$$
+$$
+\overset{(116)}{=}\left(\begin{matrix}
+0 & *\\
+* & 0
+\end{matrix}\right) \rightarrow \text{parte principale riconducibile alla forma canonica $u_{xy}$}
+$$
+$$
+[\Rightarrow 2 * v_{\xi\eta} + \dots =0|: (2*) \Rightarrow \text{parte princ }v_{\xi\eta} ]
+$$
+\underline{Caso parabolico}: \\
+prendi $\xi=x$, $\eta=\chi(x,y) \Rightarrow J=\left(\begin{matrix}
+\xi_x & \xi_y \\
+\eta_x & \eta_y
+\end{matrix}\right)=\left( \begin{matrix}
+1 & 0\\
+\chi_{x} & \chi_y
+\end{matrix}\right)$\\
+N.B. detA=0 $\Rightarrow$ se uno dei coefficienti $a_{11}, a_{22}$ è sero lo è anche $a_{12}$ ($a_{11}a_{22}-a_{12}^2=0$). In tal caso siamo già nella forma canonica.\\
+$\rightarrow $ supponiamo $a_{11}a_{22}>0$ ( non può essere $<0$, perchè $a_{12}^2 = a_{11}a_{22}$).\\
+Equazione delle caratteristiche (116):
+$$
+a_{11}\chi_x^2+2\sqrt{a_{11}a_{22}}\chi_x\chi_y + a_{22}\chi_y^2 =0
+$$
+(se $a_{12}=-\sqrt{a_{11}a_{22}}$: manda y in -y).\\
+Senza perdere la generalità:\\
+$a_{11}>0$ (altrimenti moltiplica la (105) con -1) $\Rightarrow a_{22}>0$. $\rightarrow$ abbiamo $(\sqrt{a_{11}}\chi_x + \sqrt{a_{22}}\chi_y)^2=0$
+\begin{equation}
+\Rightarrow\chi_y = - \sqrt{\dfrac{a_{11}}{a_{22}}}\chi_x (118)
+\end{equation}
+$$
+\tilde{A}=\left(\begin{matrix}
+1 & 0\\
+\chi_x & \chi_y
+\end{matrix}\right)\left(\begin{matrix}
+a_11 & \sqrt{a_{11}a_{22}}\\
+\sqrt{a_{11}a_{22}} & a_22
+\end{matrix}\right)\left(\begin{matrix}
+1 & \chi_x \\
+0 & \chi_y
+\end{matrix}\right)
+$$
+%anche questa matrice sotto era con la croce in mezzo inn forma compatta
+$$
+=\left(\begin{matrix}
+a_{11} & a_{11}\chi_x + \sqrt{a_{11}a_{22}}\chi_y \\
+a_{11}\chi_x + \sqrt{a_{11}a_{22}}\chi_y & a_{11}\chi_x^2 + 2\sqrt{a_{11}a_{22}}\chi_x\chi_y + a_{22}\chi_y^2
+\end{matrix}\right)\overset{(118)}{=}\left(\begin{matrix}
+a_{11} & 0\\
+0 & 0
+\end{matrix}\right) \rightarrow \text{forma canonica}
+$$
+\underline{Caso ellittico}: il metodo seguito per le equazioni iperboliche e paraboliche non è applicabile (non disponiamo di curve caratteristiche) $\rightarrow$ torna alla (117) e imponi direttamente $\tilde{a}_{12}=0,\tilde{a}_{11}=\tilde{a}_{22}$
+\begin{equation}
+a_{11}\xi_x \eta_x + a_{12}(\xi_x\eta_y + \xi_y\eta_x) + a_{22}\xi_y\eta_y=0(119)
+\end{equation}
+\begin{equation}
+a_{11}(\xi_x^2 - \eta_x^2) + 2a_{12}(\xi_x\xi_y - \eta_x\eta_y) + a_{22}(\xi_y^2 - \eta_y^2)=0
+(119')
+\end{equation}
+$$
+2i\cdot(119) + (119'):
+$$
+\begin{equation}
+\implies a_{11}(\xi_x + i\eta_x)^2 + 2a_{12}(\xi_x + i\eta_x)(\xi_y + i\eta_y) + a_{22}(\xi_y + i\eta_y)^2 =0 (119'')
+\end{equation}
+Si ha $a_{11}a_{22}>0$ nel caso ellittico (altrimenti $\delta =a_{12}^2 - a_{11}a_{22}$ non può mai essere <0). $\rightarrow$ la (119'') è un'equazione di 2 grado non degenere per $\rho:= \dfrac{\xi_x + i\eta_x}{\xi_y + i\eta_y}$, con soluzioni $\rho_{\pm}=-(a_{12} + i\sqrt{|\delta|})/a_{11}$
+Prendi per esempio $\rho_+$:
+$$
+\Rightarrow a_{11} (\xi_x + i\eta_x)=-(a_{12}+i\sqrt{|\delta|})(\xi_y + i \eta_y)
+$$
+e quindi 
+\begin{equation}
+\begin{matrix}
+\xi_x=(a_{12}\eta_x + a_{22}\eta_y)/\sqrt{|\delta|} \\
+\xi_y=-(a_{11}\eta_x + a_{12}\eta_y)/\sqrt{|\delta|} 
+\end{matrix}(120)
+\end{equation}
+"equazioni di Beltrami", caratterizzano le trasformazioni che conducono la parte principale ad un'espressione proporzionale all'operatore di Laplace. $\grave{E}$ stato dimostrato (risultato non banale) che le (120) ammettono soluzioni nell'intera regione di ellitticità.\\
+N.B. le (120) possono essere scritte nella forma\\
+\begin{equation}
+\dfrac{\partial w}{\partial \z}=\mu\dfrac{\partial w}{\partial z} (120')
+\end{equation}
+con $z=x+iy$, $w==\xi+i\eta$, $\mu=\dfrac{a_{11}+i a_{12 - \sqrt{|\delta|}}}{-a_{11}+i a_{12 - \sqrt{|\delta|}}}$ (esercizio)\\
+Commento: un'applicazione $w(z,\z)$ che soddisfa la (120') viene chiamata mappa \underline{quasiconforme}\\
+(Caso particolare $\mu=0$: mappa conforme, $w=w(z)$ funzione olomorfa).
+
+\section{La questione della buona posizione del problema di Cauchy}
+\underline{Definizione}: un prblema al contorno per un equazione alle derivate parziali di sice \underline{ben posto secondo Hadamard} se possiede una e una sola soluzione ed essa dipende in modo continuo dai dati.\\
+Commenti:\\
+i) L'enunciato corretto di un problema al contorno contiente non solo l'equazione differenziale e i dati al contorno, ma anche la precisazione dello spazio funzionale in cui si cerca la soluzione. Questa scelta è in grado di influenzare ad esempio l'unicità.\\
+ii) Cosa si intende per dipendenza continua? $\rightarrow$ richiede una metrica nello spazio delle soluzione e una metrica nello spazio dei dati\\
+X: spazio delle soluzioni, con norma $\| \cdot \|_X$\\
+Y: spazio dei dati, con norma $\| \cdot \|_Y$\\
+$\rightarrow$ dipendenza continua significa:\\
+Sia $\{\bar{\delta}_n\}$ successione di dati (ordinabili in un vettore) t.c.  $\lim_{n\to\infty} \| \bar{\delta}_n - \bar{\delta}\|_Y=0$, e sia $\{u_n\}$ successione di soluzioni, u: soluzione corrispondente al dato limite $\bar{\delta}$. Si ha dipendenza continua se $\lim_{n\to \infty}\|u_n - u \|=0$.\\
+-Le curve caratteristiche di un'equazione differenziale hanno un ruolo critico nel problema di Cauchy, perchè limitano la scelta delle curve portanti i dati.\\
+$\rightarrow$ equazioni ellittica avvantaggiate dall'assenza di curve caratteristiche? E' così per la questione dell'esistenza e unicità, ma non per la dipendenza continua (idem per le equazioni paraboliche).\\
+N.B. dipendenza continua dai dati è proprietà irrinunciavile per un modello matematico sensato. Infatti i dati sono di solito sperimentali e ciò non deve essere causa di un comportamento imprevedibile della soluzione.\\
+Inoltre: mancanza della dipendenza continua impedisce il calcolo numerico della soluzione, a causa della ripercussione incontrollabile degli errori di arrotondamento.\\
+-La non buona posizione del problema di Cauchy per equazioni ellittiche e paraboliche è messa in luce dai seguenti esempi:\\
+i)Successione di problemi di Cauchy\\
+$$ u_{xx}^{(n)} + u_{yy}^{(n)}=0, \quad u^{(n)}(0,y)=0, \quad u_x^{(n)}(0,y)=A_n\cos ny; n=1,2,\dots $$
+$$
+\bar{n}\cdot \bar{\nabla} = \left(\begin{matrix}
+1 \\ 0
+\end{matrix}\right) \cdot \left( \begin{matrix}
+\partial_x \\ \partial_y
+\end{matrix}\right)=\partial_x
+$$
+$\rightarrow$ unica soluzione: $u^{(n)}(x,y)=\dfrac{A_n}{2n}(e^{nx}-e^{-nx})\cos ny $
+(si può trovare con un ansatz di separazione delle variabili, $u^{(n)}(x,y)=f(x)g(y)$ ($\rightarrow$ esercizio!)). Prendi per esempio $A_n=e^{-\sqrt{n}} \Rightarrow n\to \infty$ \\
+-i dati di Cauchy tendono uniformemente a 0.\\
+-per qualunque $x\neq 0$ le $u^{(n)}$ non solo non tendono a 0, ma non restano limitate.
+ii) Successione 
+$$
+u_{xx}^{(n)} - u_t^{n}=0, \quad u^{(n)}(0,t)=A_n\sin nt, \quad u_x^{(n)}(0,t)=0;n=1,2,\dots
+$$
+$\rightarrow$ soluzione: 
+$$
+u^{(n)}(x,t) =\dfrac{1}{2}A_n\left(e^{\sqrt{\dfrac{n}{2}}x}\sin\left(nt+\sqrt{\dfrac{n}{2}x}\right) + e^{-\sqrt{\dfrac{n}{2}}x}\sin\left(nt-\sqrt{\dfrac{n}{2}x}\right)\right) 
+$$
+(esercizio!)\\
+Prendi per esempio $A_n=n^{-k}, k>0 \rightarrow$ stessa situazione dell'esempio i)
+
+
 
 
 
