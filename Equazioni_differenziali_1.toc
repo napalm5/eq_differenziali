@@ -1,0 +1,24 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Distribuzioni e trasformate di Fourier}{2}
+\contentsline {section}{\numberline {1.1}Distribuzioni}{2}
+\contentsline {subsection}{\numberline {1.1.1}Idea di base}{2}
+\contentsline {subsection}{\numberline {1.1.2}Derivata di una distribuione}{2}
+\contentsline {subsection}{\numberline {1.1.3}Delta di Dirac}{2}
+\contentsline {subsection}{\numberline {1.1.4}Definizione formale}{3}
+\contentsline {subsection}{\numberline {1.1.5}Propriet\IeC {\`a} della delta di Dirac}{4}
+\contentsline {section}{\numberline {1.2}Trasformate di Fourier}{5}
+\contentsline {section}{\numberline {1.3}Funzioni di Green}{6}
+\contentsline {chapter}{\numberline {2}Equazione del Calore}{9}
+\contentsline {section}{\numberline {2.1}Flusso di calore in un cilindro infinito}{17}
+\contentsline {subsection}{\numberline {2.1.1}Separazione delle variabili}{18}
+\contentsline {section}{\numberline {2.2}Problemi non omogenei}{19}
+\contentsline {section}{\numberline {2.3}Problema ai valori al contorno}{22}
+\contentsline {subsection}{\numberline {2.3.1}Applicazione del formalismo imparato}{25}
+\contentsline {section}{\numberline {2.4}Il kernel di Schroedinger}{31}
+\contentsline {section}{\numberline {2.5}L'equazione dei telegrafisti}{34}
+\contentsline {chapter}{\numberline {3}Classificazione delle equazioni differenziali alle derivate parziali lineari del 2 ordine}{36}
+\contentsline {section}{\numberline {3.1}Il problema di Cauchy}{38}
+\contentsline {section}{\numberline {3.2}La questione della buona posizione del problema di Cauchy}{41}
+\contentsline {section}{\numberline {3.3}Classificazione di equazioni differenziali di ordine superiore e in pi\IeC {\`u} variabili}{43}
+\contentsline {chapter}{\numberline {4}Carica immagine}{46}
