@@ -37,9 +37,9 @@
 \usepackage{multicol}
 \usepackage{framed}
 
-\title{Dispense di Differenziali}
-\author{Luca Colombo Gomez}
-\date{}
+\title{Appunti del corso di Equazioni Differenziali I}
+\author{raccolti da \\Luca Colombo Gomez}
+\date{AA 2017/2018}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rn}{\mathbb{R}^n}
@@ -56,6 +56,9 @@
 \makeindex
 
 \begin{document}
+\titlepage
+\maketitle
+
 \tableofcontents
 \chapter{Distribuzioni e trasformate di Fourier}
 \section{Distribuzioni}
@@ -2558,6 +2561,187 @@ $$
 (esercizio!)\\
 Prendi per esempio $A_n=n^{-k}, k>0 \rightarrow$ stessa situazione dell'esempio i)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 22/11 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\underline{Problema}: calcolare le derivate di ordine >2 nel problema di Cauchy (105),(109).\\
+\underline{Soluzione}: conosciamo su $\gamma$
+$$
+u_{xx}:=\omega_{2,0}(s), \quad u_{xy}:=\omega_{1,1}(s), \quad u_{yy}=\omega_{0,2}(s)
+$$
+$$
+\dfrac{d}{ds}=\bar{t}\cdot \bar{\nabla} = -\beta \partial_x + \alpha \partial_y
+$$
+%% immagine gamma con n,t
+$$
+\bar{n}=\left(\begin{matrix}
+\alpha \\ \beta
+\end{matrix}\right), \qquad \bar{t}=\left(\begin{matrix}
+-\beta \\ \alpha
+\end{matrix}\right)
+$$
+Derivate tangenziali:ho 4 incognite
+\begin{equation}
+\begin{matrix}
+-\beta u_{xxx} + \alpha u_{xxy} = \omega'_{2,0}(s) \\
+-\beta u_{xxy} + \alpha u_{xyy} = \omega'_{1,1}(s) \\
+-\beta u_{xyy} + \alpha u_{yyy} = \omega'_{0,2}(s)
+\end{matrix} (121)
+\end{equation}
+Inoltre: deriva la (105) rispetto a x e otieni conto che termini del tipo $(a_{11,x}u_{xx})|_{\gamma}$ sono noti
+\begin{equation}
+\Rightarrow a_{11}u_{xxx} + 2a_{12}u_{xxy} + a_{22}u_{xyy}=r_0^{(3)}(s) (122.0)
+\end{equation}
+oppure deriva rispeto a y
+\begin{equation}
+\Rightarrow a_{11}u_{xxy} + 2a_{12}u_{xyy} + a_{22}u_{yyy}=r_1^{(3)}(s) (122.1)
+\end{equation}
+($|_{\gamma}$ sempre sottinteso).\\
+Per (121),(122.0) abbiamo il determinante:
+$$
+J_0^{(3)}=\left|\begin{matrix}
+-\beta & \alpha & 0 & 0\\
+0 & -\beta & \alpha & 0 \\
+0 & 0 & -\beta & \alpha \\
+a_{11} & 2a_{12} & a_{22} & 0
+\end{matrix}\right| = a_{11}\alpha^3 + 2a_{12}\beta\alpha^2 + a_{22}\alpha\beta^2 = \alpha \bar{n}\cdot A \bar{n}
+$$
+Per (121),(122.1) invece: 
+$$
+J_1^{(3)}=\left|\begin{matrix}
+-\beta & \alpha & 0 & 0\\
+0 & -\beta & \alpha & 0 \\
+0 & 0 & -\beta & \alpha \\
+0 & a_{11} & 2a_{12} & a_{22} 
+\end{matrix}\right| = a_{11}\beta\alpha^2 + 2a_{12}\alpha\beta^2 + a_{22}\beta^3 = \beta \bar{n}\cdot A \bar{n}
+$$
+Siccome $\alpha^2 + \beta^2 =1$, $\bar{n}\cdot A \bar{n}\neq 0$, non possono essere entrambi nulli.\\
+Derivate di ordine $>3$: supponiamo note su $\gamma$ le derivate di grado minode nella forma $\partial_x^{n-i}\partial_y^i u = \omega_{n-i,i} (s)$, con $n\geq 3$, $i=0,1,\dots, n$ $(\partial_x^0 = \partial_y^0 \equiv 1)$\\
+Deriviamole tangenzialmente:
+\begin{equation}
+-\beta \partial_x^{n+1-i}\partial_y^{i}u +\alpha \partial_x^{n-i}\partial_y^{i+1}u = \omega'_{n-i,i}(s) (123)
+\end{equation}
+ho $n+1$ equazioni, $n+2$ incognite. Equazione mancante: applica alla (105) l'operatore $\partial_x^{n-1-k}\partial_y^k (k=0,\dots,n-1)$ per far comparire le derivate (n+1)-esime:\\
+\begin{equation}
+\Rightarrow a_{11}\partial_x^{n+1-k}\partial_y^k u + 2a_{12}\partial_x^{n-k}\partial_y^{k+1}u + a_22 \partial_x^{n-1-k}\partial_y^{k+2}u = r_k^{(n+1)}(s) (124)
+\end{equation}
+$\rightarrow$ troviamo dei determinanti $J_k^{(n+1)}$, che hanno in comue le prime n+1 righe (corrispondenti alle (123))
+$$
+\begin{matrix}
+-\beta & \alpha & 0 & 0 & \dots & 0 & 0\\
+0 & -\beta & \alpha & 0 & \dots & 0 & 0\\
+0 & 0 &-\beta & \alpha  & \dots & 0 & 0\\
+\dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+0 & 0 & 0 & 0 &  \dots & -\beta & \alpha\\
+\end{matrix}
+$$
+mentre l'ultima riga (corrispondente a una delle (124)) ha la terna $ a_{11},2a_{12},a_{22}$ che occupa i rispettivi posti (k+1)-esimo, (k+2)-esimo, (k+3)-esimo.\\
+Per :
+$$
+\begin{matrix}
+k=0 : J_0^{(n+1)} = \alpha^{n-1}\bar{n}\cdot A\bar{n}\\
+k=1 : J_1^{(n+1)} = \beta\alpha^{n-2}\bar{n}\cdot A\bar{n}\\
+\dots \\
+k=n-1 : J_{n-1}^{(n+1)} = \beta^{n-1}\bar{n}\cdot A\bar{n}\\
+\end{matrix}
+$$
+
+Almeno uno tra $J_0^{(n+1)}$ e $J_{n-1}^{(n+1)}$ è diverso da zero.
+
+\section{Classificazione di equazioni differenziali di ordine superiore e in più variabili}
+%questa sezione è da sapere solo se si vuole il 30 e/o la lode, altrimenti fa niente
+
+Considera equazioni differenziali:
+\begin{equation}
+\sum_{|j|\leq m}a_j D^j u = f \qquad (\text{in } \Rn) (125)
+\end{equation}
+
+$$ j=(j_1,\dots,j_n) \quad \text{ multi-indice}$$
+$$|j| \equiv j_1 + \dots + j_n \quad \text{ m ordine}$$
+$$D^j \equiv \left(\dfrac{\partial}{\partial x_1}\right)^{j_1} \cdot \dots \cdot \left(\dfrac{\partial}{\partial x_n}\right)^{j_n}$$
+parte principale: 
+\begin{equation}
+\sum_{|j| = m} a_j D^j u (126)
+\end{equation}
+
+Esempio m=3: 
+$$
+a_{300}(x,y,z)\dfrac{\partial ^3 u}{\partial x^3} + a_{020}(x,y,z)\dfrac{\partial ^2 u}{\partial y^2} + a_{201}(x,y,z)\dfrac{\partial ^3 u}{\partial x^2\partial z} + a_{001}(x,y,z)\dfrac{\partial u}{\partial x} = f(x,y,z) (*)
+$$
+
+$\rightarrow$ parte principale:
+
+$$
+a_{300}(x,y,z)\dfrac{\partial ^3 u}{\partial x^3} + a_{201}(x,y,z)\dfrac{\partial ^3 u}{\partial x^2\partial z}
+$$
+
+\underline{Definizione}: una sottovarietà di dim n-1 ed equazione $S(x_1,\dots,x_n)=0$ viene chiamata \underline{varietà caratteristica} dell'equazione differenziale a derivate parziali se soddisfa l'equazione differenziale del 1 ordine
+
+\begin{equation}
+\sum_{|j| =m} a_j p^j=0 , \qquad p^j=\left(\dfrac{\partial S}{\partial x_1}\right)^{j_1} \cdot \dots \cdot \left(\dfrac{\partial S}{\partial x_n}\right)^{j_n} = p_1^{j_1}\cdot \dots \cdot p_n^{j_n} (127)
+\end{equation}
+
+Esempi:\\
+i) per la (*): 
+$$
+\sum_{|j| = 3}a_{j_1 j_2 j_3}\left(\dfrac{\partial S}{\partial x}\right)^{j_1}\left(\dfrac{\partial S}{\partial y}\right)^{j_2}\left(\dfrac{\partial S}{\partial z}\right)^{j_3}=0
+$$
+$$
+\Rightarrow a_{300}\left(\dfrac{\partial S}{\partial x}\right)^3 + a_{201}\left(\dfrac{\partial S}{\partial x}\right)^2\left(\dfrac{\partial S}{\partial y}\right)=0
+$$
+
+ii) per la (105):
+$$
+a_{20}(x,y)u_{xx}+a_{11}(x,y)u_{xy} + a_{02}u_{yy} + a_{10}(x,y)u_x + a_{01}(x,y)u_y + a_{00}(x,y)u = f(x,y)
+$$
+(rinominato i coefficienti)\\
+m=2\\
+parte principale: $a_{20}u_{xx} + a_{11}u_{xy} + a_{02}u_{yy} $\\
+varietà caratteristica:
+$$
+a_{20}\left(\dfrac{\partial S}{\partial x}\right)^2 + a_{11}\dfrac{\partial S}{\partial y} + a_{02}\left(\dfrac{\partial S}{\partial y}\right)^2=0
+$$
+è la (116) (con $\chi \rightarrow S|_{S(x,y)=0}$)
+\underline{Problema di Cauchy}: trovare una soluzione $C^m$ della (125), la quale, assieme alle sue derivate dell'ordine $\leq m-1$, assume dei valori fissati su una sottovarietà di dimensione n-1 ed equazione $S(x_1,\dots,\x_n)=0$.\\
+Esempio: $n=m=2 \Rightarrow $ dim S=1 $\rightarrow$ curva sulla quale fissiamo u e la sua derivata prima.\\
+Il problema viene semplificato dal seguente cambiamento di coordinate:
+$$
+x_1'=S(x_1,\dots,x_n), x_j'=x_j (j=2,\dots,n)
+$$
+$$
+\dfrac{\partial}{\partial x_i} = \dfrac{\partial x_1'}{\partial x_i}\dfrac{\partial}{\partial x'_1}+\sum_{j=2}^n \dfrac{\partial x'_j}{\partial x_i}\dfrac{\partial}{\partial x'_j}=p_i\dfrac{\partial}{\partial x'_1} + \sum_{j=2}^n \delta_{ij} \dfrac{\partial}{\partial x'_j}
+$$
+$\Rightarrow$ la (125) diventa:
+%%equazione incasinata con frecce, da completare vedi appunti
+$$
+\sum_{|j| \leq m} a_j\left(\dfrac{\partial}{\partial x_1}\right)^{j_1}\left(\dfrac{\partial}{\partial x_2}\right)^{j_2}\cdot \dots\cdot \left(\dfrac{\partial}{\partial x_n}\right)^{j_n}u
+$$
+$$
+\left(\dfrac{\partial}{\partial x_1}\right)^{j_1} \rightarrow p_1\dfrac{\partial}{\partial x'_1} + \sum_{j=2}^n \delta_{j1}\dfrac{\partial}{\partial x'_j} = p_1\dfrac{\partial}{\partial x'_1}
+$$
+$$
+\left(\dfrac{\partial}{\partial x_2}\right)^{j_2} \rightarrow p_2\dfrac{\partial}{\partial x'_1} + \sum_{j=2}^n \delta_{j2}\dfrac{\partial}{\partial x'_j} = p_2\dfrac{\partial}{\partial x'_1} + \dfrac{\partial}{\partial x'_2}
+$$
+$$
+\left(\dfrac{\partial}{\partial x_n}\right)^{j_n} \rightarrow p_n\dfrac{\partial}{\partial x'_1} + \dfrac{\partial}{\partial x'_n}
+$$
+\begin{equation}
+\Rightarrow \sum_{|j|=m} a_j p_1^{j_1}\cdot \dots \cdot p_n^{j_n}\left(\dfrac{\partial}{\partial x'_1}\right)^{j_1 + \dots  + j_n} + \sum_{\underset{j_1<m}{|j|\leq m}}b_j\left(\dfrac{\partial}{\partial x'_1}\right)^{j_1} \cdot \dots \cdot \left(\dfrac{\partial}{\partial x'_n}\right)^{j_n}u=f (128)
+\end{equation}
+Per alleggerire la notazione sopprimo i primi ' in quello che segue.\\
+Dati di Cauchy per la (128):
+\begin{equation}
+\left.\dfrac{\partial^k u}{(\partial x_1)^k}\right|_{x_1=0}=\varphi_k(x_2,\dots, x_n) , \qquad k=0,\dots,m-1 (129)
+\end{equation}
+
+Se le funzioni $\varphi_k$ sono di classe $C^{m-k}$, determinano 
+\begin{equation}
+D^j u(0,x_2,\dots,x_n)=\left(\left(\dfrac{\partial}{\partial x_1}\right)^{j_1}\cdot \dots \cdot \left(\dfrac{\partial}{\partial x_n}\right)^{j_n}u\right)(0,x_2,\dots,x_n) (130)
+\end{equation}
+per $|j|\leq m, \quad j_1<m$ (deriva la (129) al massimo m-k volte).\\
+Le (130), attraverso la (128), determinano $\dfrac{\partial^m u}{(\partial x_1)^m} (0,x_2,\dots, x_n)$ se $\sum_{|j|=m} a_j p^j \neq 0$, cioè se S non è una varietà caratteristica. Se S è una varietà caratteristica, la (128) valutata in $x_1=0$ dà una reatione fra i dati di Cauchy (129). Su una varietà caratteristica i dati di Cauchy possono essere prescritti indipendentemente!
+
 
 
 
@@ -2634,6 +2818,10 @@ $$
 $$
 \Rightarrow R^2 = b^2 - \dfrac{R^4}{r_0^2} + \dfrac{R^2}{r_0^2}(r_0^2 + R^2 - a^2) \implies \dfrac{R}{r_0^2}a^2 = b^2 \implies \dfrac{b}{a}=\dfrac{R}{r_0} \qquad \checkmark
 $$
+
+
+
+
 
 \end{document}
 
