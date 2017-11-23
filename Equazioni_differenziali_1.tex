@@ -2724,7 +2724,7 @@ $$
 \left(\dfrac{\partial}{\partial x_2}\right)^{j_2} \rightarrow p_2\dfrac{\partial}{\partial x'_1} + \sum_{j=2}^n \delta_{j2}\dfrac{\partial}{\partial x'_j} = p_2\dfrac{\partial}{\partial x'_1} + \dfrac{\partial}{\partial x'_2}
 $$
 $$
-\left(\dfrac{\partial}{\partial x_n}\right)^{j_n} \rightarrow p_n\dfrac{\partial}{\partial x'_1} + \dfrac{\partial}{\partial x'_n}
+\left(\dfrac{\partial}{\partial x_n}\right)^{j_n} \rightarrow
 $$
 \begin{equation}
 \Rightarrow \sum_{|j|=m} a_j p_1^{j_1}\cdot \dots \cdot p_n^{j_n}\left(\dfrac{\partial}{\partial x'_1}\right)^{j_1 + \dots  + j_n} + \sum_{\underset{j_1<m}{|j|\leq m}}b_j\left(\dfrac{\partial}{\partial x'_1}\right)^{j_1} \cdot \dots \cdot \left(\dfrac{\partial}{\partial x'_n}\right)^{j_n}u=f (128)
@@ -2741,6 +2741,155 @@ D^j u(0,x_2,\dots,x_n)=\left(\left(\dfrac{\partial}{\partial x_1}\right)^{j_1}\c
 \end{equation}
 per $|j|\leq m, \quad j_1<m$ (deriva la (129) al massimo m-k volte).\\
 Le (130), attraverso la (128), determinano $\dfrac{\partial^m u}{(\partial x_1)^m} (0,x_2,\dots, x_n)$ se $\sum_{|j|=m} a_j p^j \neq 0$, cioè se S non è una varietà caratteristica. Se S è una varietà caratteristica, la (128) valutata in $x_1=0$ dà una reatione fra i dati di Cauchy (129). Su una varietà caratteristica i dati di Cauchy possono essere prescritti indipendentemente!
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 23/11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\underline{Teorema di Cauchy - Kowalevski}:\\
+La (125) con f e $\{a_j\}$ analitiche, e dati di Cauchy analitici su una varietà analitica S non caratteristica, ha una e una sola soluzione analitica in un intorno di S.\\
+\underline{Classificazione}: le proprietà di soluzioni di equazioni differenziali alle derivate parziali dipendono dalla natura delle variabili caratteristiche $\rightarrow$ seguente classificazione:\\
+-La (125) viene chiamata \underline{ellittica} se l'equazione in $\underset{\equiv p}{\underbrace{(p_1,\dots,p_n)}}$
+$$
+\sum_{|j|=m}a_jp^j=0 \quad 
+$$
+non ammette soluzioni reali per $p\neq 0$\\
+-La (125) è $x^1-$\underline{iperbolica} se l'equazione in $p_1$
+$$
+\sum_{|j|=m}a_jp^j=0
+$$
+ha m radici reali distinte per ogni sistea di numero reali $(p_1,\dots,p_n)$\\
+Esempi:\\
+i) Equazione di Laplace $\Delta u=\sum_{i=1}^n\dfrac{\partial^2}{\partial x_i^2}u=0$, m=2
+$$
+\sum_{|j|=2} a_{j_1,\dots,j_n}p_1^{j_1}\cdot \dots \cdot p^{j_n}_n=0
+$$
+%c'era una freccia che andava dall'equazione qui sopra alla parte che viene dopo la * nell'equazione per il delta u
+$$
+\Rightarrow p_1^2 + p_2^2 + \dots + p_n^2 =0
+$$
+$$
+\left[\Delta u = \overset{1}{\overbrace{a_{20\dots 0}}}\dfrac{\partial^2}{\partial x_1^2}u + \underset{1}{\underbrace{a_{020\dots 0}}}\dfrac{\partial^2}{\partial x_2^2} + \dots + \underset{1}{\underbrace{a_{0\dots 02}}}\dfrac{\partial^2}{\partial x_n^2}  + \overset{1}{\overbrace{a_{20\dots 0}}}p_1^2 p_2^0 \dots p_n^0 + \dots + \underset{1}{\underbrace{a_{00\dots 02}}}p_1^0p_2^0\dots p_n^2 \right]\Rightarrow \text{ellittica}
+$$
+ii) Equazione d'onda
+$$
+\Delta u =\left(\dfrac{\partial^2}{\partial x_1^2}-\sum_{i=2}^n\dfrac{\partial^2}{\partial x_i^2} \right)u=0, \qquad m=2
+$$
+$$
+\sum_{|j|=2} a_{j_1 \dots j_n}p_1^{j_1}\cdot \dots \cdot p_n^{j_n}=0
+$$
+$$
+\Rightarrow p_1^2 - p_2^2 - \dots - p_n^2=0
+$$
+$ \Rightarrow$ 2 radici reali per $p_1$, $\forall (P_1,\dots,p_n) \Rightarrow$ iperbolica.\\
+-La (125) è $x^1-$\underline{parabolica} se può essere scritta
+\begin{equation}
+\dfrac{\partial u}{\partial x_1} - \sum_{\underset{j_1=0}{|j|\leq m}}a_jD^j=f (131)
+\end{equation}
+
+con $\sum_{\underset{j_1=0}{|j|\leq m}} a_jp^j >0 \forall p\neq 0$, cioé $\sum_{\underset{j_1=0}{|j|\leq m}} a_jD^j$ è un operatore differenziale ellittico in $\R^{n-1}$.\\
+Esempio: l'equazione del calore $\dfrac{\partial u}{\partial t} - \Delta u$ è t-parabolica.\\
+-Le equazioni paraboliche rappresentano una classe importante di equazioni che non sono né ellittiche né iperboliche.
+
+\section{La formula di Green}
+Sia $U\subseteq \Rn$ insieme aperto limitato con bordo $C^1 \partial U$, $u,\varphi$ funzioni $C^2$ in U.
+%immagine dell'insieme U
+$$
+\Rightarrow u\Delta \varphi = \sum_{i=1}^n\dfrac{\partial}{\partial x_i}\left(u\dfrac{\partial \varphi}{\partial x_i} \right) - \sum_{i=1}^{n}\dfrac{\partial u}{\partial x_i}\dfrac{\partial \varphi}{\partial x_i}
+$$
+$$
+\int_{U}u\Delta \varphi d^nx=\underset{\overset{Gauss}{=}\int_{\partial U}\sum_i u\dfrac{\partial \varphi}{\partial x_i}d^{n-1}S^i}{\underbrace{\int_{U}\sum_{i=1}^n\dfrac{\partial}{\partial x_i}\left(u\dfrac{\partial \varphi}{\partial x_i} \right)d^nx}} - \int_{U} \sum_{i=1}^{n} \dfrac{\partial u}{\partial x_i}\dfrac{\partial \varphi}{\partial x_i}d^nx
+$$
+$\sum_i \dfrac{\partial }{\partial x_i}v_i = div \bar{v}$ posso applicare il teorema di Gauss al primo integrale.
+$$
+\left| d^{n-1}\vec{S}\right| = \text{elemento di "superficie" (n-1)-dim.}
+$$
+\begin{equation}
+\overset{\varphi=u}{\Rightarrow} \int_U u\Delta u d^n x = \int_{\partial U} \sum_i u\dfrac{\partial u}{\partial x_i}d^{n-1}S^i - \int_{U}\sum_i \left(\dfrac{\partial u}{\partial x_i}\right)^2 d^n x (132)
+\end{equation}
+
+("integrale di energia"), e 
+
+\begin{equation}
+\int_U \left(u\Delta \varphi - \varphi \Delta u\right)d^n x=\int_{\partial U} \sum_i \left( u\dfrac{\partial \varphi}{\partial x_i} - \varphi \dfrac{\partial u}{\partial x_i}\right) d^{n-1}S (133)
+\end{equation}
+"formula di Green" (2 identità di Green)\\
+$\Rightarrow$ \underline{teorema di unicità}: l'equazione $\Delta u = f$ ha al massimo una soluzione in $C^2(U)$ che assume dei dati valori su $\partial U$.\\
+\underline{Dimostrazione}: siano $v_1$ e $v_2$ soluzioni. Dimostreremo che $u=v_1 - v_2=0$
+$$
+\Delta u=\Delta v_1 - \Delta v_2 = f-f =0, \qquad u|_{\partial U} = v_1 |_{\partial U} - v_2 |_{\partial U}=0
+$$
+$$
+(132)\Rightarrow \sum_i\int_U \left(\dfrac{\partial u}{\partial x_i}\right)^2 d^n x=0
+$$
+$$
+\Rightarrow \dfrac{\partial u}{\partial x_i}=0 \text{ in }U
+$$
+$$
+\Rightarrow u= \text{costante in }U
+$$
+$$
+\left.u\right|_{\partial U}=0 \Rightarrow u=0 \text{ in }U \qquad \blacksquare
+$$
+La formula di Green (133) permette di ottenere un'espressione per $ u(\y),\y \in U$, in termini di f $(=\Delta u)$ in U e di $u,\dfrac{\partial u}{\partial n}$ su $\partial U$:\\
+Nella (133), poni $\varphi(\x)=-K_n|\x-\y|^{2-n},$ con $K_n:= \dfrac{\Gamma (n/2)}{(n-2)2\pi ^{n/2}}, n\neq 2$\\
+$\varphi$ è $C^\infty$ nell'insieme aperto $\x \neq \y$. Per il dominio di integrazione prendiamo $U_\epsilon$, uguale a U senza la palla $B_\epsilon(\y)$ con raggio $\epsilon$ e centro $\y$:
+%immagine dell'insieme descritto
+$$
+(133)\Rightarrow \int_{U_\epsilon} \left(u\Delta\varphi - \varphi \Delta u\right)d^n x
+$$
+$\Delta \varphi = 0$ in $U_\epsilon$ (compito: verificare!). $\partial U_\epsilon=\partial U \cup \partial B_\epsilon$
+$$
+\int_{\partial U_\epsilon}\sum_i \left( u\dfrac{\partial \varphi}{\partial x_i} - \varphi \dfrac{\partial u}{\partial x_i}\right)d^{n-1}S^i
+$$
+$$
+\Rightarrow K_n \underset{\overset{\epsilon \to 0}{\rightarrow}\int_U |\x - \y|^{2-n}f d^n x}{\underbrace{\int_{U_\epsilon}|\x-\y|^{2-n}\underset{f}{\underbrace{\Delta u}} d^n x}}
+$$
+\begin{equation}
+=-K_n \int_{\partial U \cup \partial B_\epsilon}\sum_i \left(u\dfrac{\partial}{\partial x_i}|\x-\y|^{2-n} - |\x-\y|^{2-n}\dfrac{\partial u}{\partial x_i} \right)d^{n-1}S^i (134)
+\end{equation}
+$$
+\dfrac{\partial}{\partial x_i}|\x - \y|^{2-n}=\dfrac{\partial}{\partial x_i}\left[ (x_1-y_1)^2 + \dots + (x_n - y_n)^2\right]^{\dfrac{2-n}{2}}=\dfrac{2-n}{2}[\dots]2(x_i-y_i)=(2-n)(x_i-y_i)|\x-\y|^{-n}
+$$
+Integrale su $\partial B_\epsilon$:
+$$
+-K_n\int_{S_\epsilon}\sum_i\left(u(2-n)\overset{n_i |\x - \y|}{\overbrace{(x_i-y_i)}}|\x - \y|^{-n}-|\x-\y|^{2-n}\dfrac{\partial u}{\partial x_i}\right) d^{n-1}S^i
+$$
+con $S_\epsilon^{n-1}$ (n-1)-sfera con raggio $\epsilon$ (bordo di $B_\epsilon$), $|\x-\y|=\epsilon$ per $\x \in \partial B_\epsilon$\\
+%immagine palla B epsilon 
+vettore normale: $\bar{n}=\dfrac{\x - \y}{|\x-\y|}, |\bar{n}|=1$ (punta verso l'esterno della palla)\\
+$d^{n-1}S^i= - n_idV_\epsilon$. Il vettore normale deve puntare verso l'\underline{esterno} di $U_\epsilon$ , che è l'interno della palla. $dV_\epsilon$ elemento di "superficie" su $S^{n-1}_\epsilon$\\
+%immagine di U epsilon
+$ \Rightarrow $ integrale su $\partial B_\epsilon=$
+$$
+=+K_n\int_{S_\epsilon^{n-1}} \sum_i \left(u(2-n)n_i\epsilon^{1-n}-\epsilon^{2-n}\dfrac{\partial u}{\partial x_i}\right)n_i\underset{\epsilon^{n-1}dV_1}{\underbrace{dV_\epsilon}}
+$$
+dove $dV_1$= elemento di volume sulla $S_1^{n-1}$ (raggio 1)
+\begin{equation}
+\overset{\epsilon \to 0}{\underset{\sum_i (n_i)^2=1}{\longrightarrow}}+K_n u(\y)(2-n)\int_{S_1^{n-1}}dV_1=-u(\y) (135)
+\end{equation}
+con $\int_{S_1^{n-1}}dV_1=$"superficie" della sfera (n-1)-dimensionale con raggio 1,  $dV_1=\dfrac{2\pi^{n}}{\Gamma(n/2)}$, volume $V_n(R)$
+
+$$
+u(\x) \qquad \x \in \partial B_\epsilon
+$$
+$$
+u(\x)\to u(\y) \text{ per } |\x - \y|=\epsilon
+$$
+\underline{Parentesi: volume della palla n-dim e area della $S^{n-1}$}
+$$
+B^n(R)=\{(x_1,\dots,x_n)\in \R |x_1^2 + \dots + x_n^2\leq \R^2\}
+$$
+%immagine bolla raggio R
+$$
+S^{n-1}(R)=\{(x_1,\dots,\x_n)\in\Rn | x_1 + \dots + x_n^2=R^2 \}, \text{ area $A_{n-1}(R)$}
+$$
+\begin{equation}
+V_n(R)=\int\dots \int_{x_1^2 + \dots + x_n^2 \leq R} dx_1\dots dx_n = C_n R^n (136)
+\end{equation}
+$C_n$ coefficienti da calcolare, $R^n$ segue da analisi dimensionale
+
+
+
 
 
 
