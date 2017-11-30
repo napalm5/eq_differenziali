@@ -2888,17 +2888,215 @@ V_n(R)=\int\dots \int_{x_1^2 + \dots + x_n^2 \leq R} dx_1\dots dx_n = C_n R^n (1
 \end{equation}
 $C_n$ coefficienti da calcolare, $R^n$ segue da analisi dimensionale
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%% manca lezione 29 Novembre
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 30 novembre
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%visto il metodo delle costanti
+\underline{Compito}: generalizzare il metodo descritto sopra al problema
+$$
+\sum_{i=1}^n a_i(\x,u)u_{x_i} + c(\x,u)=0
+$$
+con $\x = (x_1,\dots,x_n)$, e i dati iniziali sono dati nella forma $\x=\x_0(\bar{s}), u=u_0(\bar{s})$ con $\bar{s}=(s_1,\dots,s_{n-1}$. L'equazione per $\x$ defnisce un'ipersuperficie di dimensione n-1 in $\Rn$.\\
+-Ora vorremmo generalizzare questa costruzione al problema non-quasilineare
+\begin{equation}
+F(x,y,u,p,q)=0, \quad p=u_x, q=u_y (154)
+\end{equation}
+Assumiamo che F sia una funzione $C^1$ dei suoi argomenti. Sia u una funzione $C^2$ che risolve la (154). Vorremmo trovare un sistema caratteristico di equazioni differenziali ordinarie simile a (152).\\
+A tal fine poniamo
+\begin{equation}
+\dfrac{dx}{dt}=\dfrac{\partial F}{\partial p}=F_p, \quad \dfrac{dy}{dt}=\dfrac{\partial F}{\partial q}=F_q (155)
+\end{equation}
+(Applicando questo alla (146), cioé a $a(x,y,u)p + b(x,y,u)q + c(x,y,u)=0$, dà le (152).)\\
+equazione per u:
+\begin{equation}
+\dfrac{d}{dt}u(x(t),y(t)) = u_x \dfrac{dx}{dt}+u_y\dfrac{dy}{dt}=p F_p + q F_q (156)
+\end{equation}
+(Applicando alla (146), questo da $\dfrac{d}{dt}u(x(t),y(t))=-c$, che è l'ultima delle (152).)\\
+Vorremmo usare (155),(156) come sistema caratteristico.\\
+problema: questo sistema (contrariamente alle (152)) non dipende solo da x,y,u, ma anche da $u_x$ e $u_y$. \\
+$\rightarrow$ servono delle equazioni per $p=u_x$ e $q=u_y$.\\
+Si ha:
+\begin{equation}
+\dfrac{dp}{dt}=\dfrac{d}{dt}u_x = u_{xx}\dfrac{dx}{dt} + u_{xy}\dfrac{dy}{dt}=u_{xx}F_p + u_{xy}F_q (157)
+\end{equation}
+deriva la $\underset{F(x,y,u,p,q)}{\underbrace{(154)}}$ rispetto a x:
+\begin{equation}
+\Rightarrow F_x + F_u u_x + F_p u_{xx} + F_q u_{xy}=0 (158)
+\end{equation}
+Usando la (158), la (157) diventa
+\begin{equation}
+\dfrac{dp}{dt}=-F_x - p F_u (159)
+\end{equation}
+In modo molto simile (compito!)
+\begin{equation}
+\dfrac{dq}{dt}=-F_y - qF_u (159')
+\end{equation}
+$\rightarrow$ abbiamo il seguente sistema chiuso di equazioni differenziali ordinarie:
+\begin{equation}
+\begin{matrix}
+\dfrac{dx}{dt}= F_p,\quad \dfrac{dy}{dt}=F_q, \quad \dfrac{du}{dt}=pF_p + qF_q,\\
+\dfrac{dp}{dt}= - p F_u - F_x, \quad \dfrac{dq}{dt}=-q F_u - F_y 
+\end{matrix}(160)
+\end{equation}
+"Sistema di Lagrange-Charpit"\\
+$\rightarrow$ seguente metodo per risolvere la (154):\\
+Sia data una curva $\Gamma$ non caratteristica $(x_0(s),y_0(s))$, assieme a dei valori $u=u_0(s)$ su $\Gamma$.\\
+Contrariamente al caso qusilineare abbiamo bisogno di condizioni iniziali $p=p_0(s)$ e $q=q_0(s)$ per risolvere le (160). Le condizioni iniziali devono risolvere la (154): 
+\begin{equation}
+F(x_0,y_0,u_0,p_0,q_0)=0 (161)
+\end{equation}
+Serve un'altra condizione per determinare $p_0$, e $q_0$. Per ottenerla, notiamo che la soluzione $u(x,y)$ della (!54) soddisfa $\dfrac{d}{ds}u(x_0(s), y_0(s))=u_x\dfrac{dx_0}{ds}+u_y\dfrac{dy_s}{ds} \Rightarrow$ richiediamo che $p_0, q_0$ soddisfino anche
+\begin{equation}
+\dfrac{du_0}{ds}=p_0(s)\dfrac{dx_0}{ds}+ q_0(s)\dfrac{dy_0}{ds} (162)
+\end{equation}
 
-
-
-
-
-
-
-
-
+(161) e (162) forniscono le funzioni iniziali $p_0(S), q_0(s)$.\\
+Richiediamo inoltre
+\begin{equation}
+\left| \begin{matrix}
+x'_0(s) & F_p\\
+y'_0(s) & F_q
+\end{matrix}\right| \neq 0 \text{ su } \Gamma (163)
+\end{equation}
+(vedremo sotto a cosa serve)\\
+Risolvi le (160) con condizioni iniziali date su $\Gamma$.\\
+$\rightarrow$ produce le funzioni $x(t,s), y(t,s), u(t,s), p(t,s), q(t,s)$\\
+Grazie alla (163) possiamo invertire $x(t,s), y(t,s)$ per ottenere $t(x,y), s(x,y)$ in un intorno di $\Gamma$. Sostituito in $u(t,s)$ da una soluzione $u(x,y)$.\\
+Dimostriamo che questa ricetta fornisce infatti una soluzione della (154):\\
+Dimostriamo prima che 
+$$
+G(t,s) \equiv F(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s))=0
+$$
+N.B. : $G(0,s)=0$ a causa della $\underset{F(x_0,y_0,u_0,p_0,q_0)=0}{\underbrace{(161)}}$
+$$
+\dfrac{\partial G}{\partial t} = F_x \dfrac{\partial x}{\partial t} + F_y \dfrac{\partial y}{\partial t} + F_u \dfrac{\partial u}{\partial t} + F_p \dfrac{\partial p}{\partial t} + F_q \dfrac{\partial q}{\partial t}
+$$
+$$
+\overset{(160)}{=}F_xF_p + F_y F_q + F_u(pF_p + qF_q) - F_p(F_x + pF_u) - F_q(F_y + qF_u)=0
+$$
+$$
+\Rightarrow G(t,s)=0
+$$
+Prossimo passo: dobbiamo dimostrare che 
+$$
+p(x,y)=\dfrac{\partial u(x,y)}{\partial x}, \quad q(x,y)=\dfrac{\partial u(x,y)}{\partial y}
+$$
+A tal fine dimostriamo che 
+\begin{equation}
+H(t,s)=\dfrac{\partial u}{\partial s} - p(t,s)\dfrac{\partial x}{\partial s} - q(t,s) \dfrac{\partial y}{\partial s} =0 (164)
+\end{equation}
+(il motivo diventerà chiaro fra qualche istante\dots)\\
+N.B. $H(0,s)=0$ per la $\underset{\dfrac{du_0}{ds} = p_0(s)\dfrac{dx_0}{ds} + q_0(s) \dfrac{dy_0}{ds}}{\underbrace{(162)}}$
+$$
+\dfrac{\partial H}{\partial t} = \dfrac{\partial^2 u}{\partial t \partial s} + \dfrac{\partial p}{\partial t}\dfrac{\partial x}{\partial s} - p\dfrac{\partial^2 x}{\partial t \partial s} + \dfrac{\partial q}{\partial t}\dfrac{\partial y}{\partial s} - q\dfrac{\partial^2 y}{\partial t \partial s}
+$$
+$$
+\overset{(160)}{=} \dfrac{\partial}{\partial s}(pF_p + qF_q) + (F_x pF_u)\dfrac{\partial x}{\partial s} - p\dfrac{\partial}{\partial s}F_p + (F_y + qF_u)\dfrac{\partial y}{\partial s} - q \dfrac{\partial}{\partial s} F_q 
+$$
+\begin{equation}
+=F_p \dfrac{\partial p}{\partial s} + F_q \dfrac{\partial q}{\partial s} + (F_x + pF_u)\dfrac{\partial x}{\partial s} + (F_y + qF_u)\dfrac{\partial y}{\partial s} (165)
+\end{equation}
+Inoltre: $G(t,s)=0 \forall (t,s)$
+$$
+\Rightarrow \dfrac{\partial G}{\partial s }=F_x \dfrac{\partial x}{\partial s} + F_y \dfrac{\partial y}{\partial s} + F_u \dfrac{\partial u}{\partial s} + F_p\dfrac{\partial p}{\partial s} + F_q \dfrac{\partial q}{ \partial s}=0
+$$
+Usando questa nella (165) otteniamo
+$$
+\dfrac{\partial H}{\partial t} = - F_u\left(\dfrac{\partial u}{\partial s} - p\dfrac{\partial x}{\partial s} - q\dfrac{\partial y}{\partial s}\right)=-F_u H
+$$
+La soluzione di questa equazione differeziale ordinaria con condizione iniziale $H(0,s)=0$ è $H(t,s)=0$
+[Dimostrazione in appendice
+$$
+\dfrac{\dfrac{\partial H}{\partial t}}{H}=-F_u \Rightarrow \dfrac{\partial}{\partial t}\ln H = -F_u
+$$
+$$
+\Rightarrow \ln H(t) = -\int F_u(s,t)dt + \ln C
+$$
+$$
+\Rightarrow H(t,s)=C\underset{=:h(t,s)}{\underbrace{\exp (-\int F_u dt)}}
+$$
+$$
+\Rightarrow H(0,s)= C h(0,s) \overset{!}{=}0 \Rightarrow C=0 \Rightarrow H(t,s)=0]
+$$
+Dobbiamo ancora far vedere che $H(t,s)=0$ implica $p=u_x, q=u_y$. A tal fine nota che :
+$$
+\dfrac{\partial u}{\partial t}\overset{(160)}{=} p F_p + q F_q \overset{(160)}{=} p\dfrac{\partial x}{\partial t} + q \dfrac{\partial y}{\partial t}
+$$
+Questa, assieme alla (164) dimostra che 
+$$
+\left(\begin{matrix}
+\dfrac{\partial u}{\partial t}\\
+\dfrac{\partial u}{\partial s}
+\end{matrix}\right) = J \cdot \left(\begin{matrix}
+p\\
+q
+\end{matrix}\right)
+$$
+con
+\begin{equation}
+J=\left(\begin{matrix}
+\dfrac{\partial x}{\partial t} & \dfrac{\partial y}{\partial t} \\
+\dfrac{\partial x}{\partial s} & \dfrac{\partial y}{\partial s}
+\end{matrix}\right) (166)
+\end{equation}
+Considerando u una funzione di x e , abbiamo 
+\begin{equation}
+J\left(\begin{matrix}
+\dfrac{\partial u}{\partial x} \\
+\dfrac{\partial u}{\partial y}
+\end{matrix}\right)=\left(\begin{matrix}
+\dfrac{\partial u}{\partial t} \\
+\dfrac{\partial u}{\partial s}
+\end{matrix}\right) (167)
+\end{equation}
+[ p.e. prima riga: $\dfrac{\partial x}{\partial t}\dfrac{\partial u}{\partial x} + \dfrac{\partial y}{\partial t}\dfrac{\partial u}{\partial y}=\dfrac{\partial u}{\partial t} \quad \checkmark$]
+$$
+(166)=\left(\begin{matrix}
+p\\
+q
+\end{matrix}\right) = \underset{\text{è invertibile a causa della (163)}}{\underbrace{J^{-1}}} \cdot \left(\begin{matrix}
+\dfrac{\partial u}{\partial t}\\
+\dfrac{\partial u}{\partial s}
+\end{matrix}\right)\overset{(167)}{=}\left(\begin{matrix}
+\dfrac{\partial u}{\partial x} \\
+\dfrac{\partial u}{\partial y}
+\end{matrix}\right) q.e.d.
+$$
+N.B. eliminando il parammetro t dalle equazioni di Lagrange-Charpit (160) si ottiene
+\begin{equation}
+\dfrac{dx}{F_p}=\dfrac{dy}{F_q}=\dfrac{du}{pF_p + qF_q}=\dfrac{dp}{-F_x - pF_u} = \dfrac{dq}{-F_y - qF_u} (168)
+\end{equation}
+A volte le equazioni si vedono scritte in questa forma.\\
+-Generalizzazione al caso di n variabili:
+\begin{equation}
+F(x_1,\dots,x_n,u,p_1,\dots,p_n)=0 (169)
+\end{equation}
+(prima n=2, $p_1=1,p_2=q,x_1=x,x_2=y$)
+\begin{equation}
+\Rightarrow \begin{matrix}
+p_i=\dfrac{\partial u}{\partial x_i} \\
+\dot{x_i} = F_{p_i} \\
+\dot{p_i}=-F_{x_i} - p_i F_u \\
+\dot{u}=\sum_{i=1}^n p_i F_{p_i}
+\end{matrix} (170)
+\end{equation}
+oppure 
+$$
+\dfrac{dx_i}{F_{p_i}}=-\dfrac{dp_i}{F_{x_i} + p_iF_u}=\dfrac{du}{\sum_{j=1}^n p_j F_{p_j}}
+$$
+Se u è data su una superficie iniziale, $u=u_0(\bar{s})$, per $\x = \x_0(\bar{s})$ dove $\bar{s}=(S_1,\dots,s_{n-1}), \x=(x_1,\dots,x_n)$, le condizioni iniziali per $\bar{p}=(p_1,\dots,p_n)$ sono le soluzioni del sistema
+\begin{equation}
+\begin{matrix}
+F(\x_0(\bar{s}),u_0(\bar{s}),p_0(\bar{s})=0\\
+\dfrac{\partial u_0(\bar{s}}{\partial s_j}=\sum_{k=1}^n p_{k,0}(\bar{s})\dfrac{\partial x_{k,0}(\bar{s})}{\partial s_j}, \quad j=1,\dots,n-1
+\end{matrix} (170')
+\end{equation}
+che generalizzano le (161),(162).
 
 
 
