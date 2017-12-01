@@ -1,5 +1,4 @@
-# eq_differenziali
-Metodi Matematici per la Fisica: Equazioni differenziali 1
+# Metodi Matematici per la Fisica: Equazioni differenziali 1
 
 Questa raccolta contiene gli appunti del corso tenuto dal professor Klemm nel primo demestre dell'anno accademico 2017/18. Sono una trascrizione fedele delle lezioni tenute dal professore, la numerazione delle equazioni e la suddivisione in capitoli è la stessa che viene fatta a lezione. 
 
