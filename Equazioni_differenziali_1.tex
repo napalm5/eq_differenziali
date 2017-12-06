@@ -2884,24 +2884,165 @@ $$
 S^{n-1}(R)=\{(x_1,\dots,\x_n)\in\Rn | x_1 + \dots + x_n^2=R^2 \}, \text{ area $A_{n-1}(R)$}
 $$
 \begin{equation}
-V_n(R)=\int\dots \int_{x_1^2 + \dots + x_n^2 \leq R} dx_1\dots dx_n = C_n R^n (136)
+V_n(R)=\underset{x_1^2 + \cdots + x_n^2 \leq R}{\int \dots \int} dx_1\dots dx_n = C_n R^n (136)
 \end{equation}
 $C_n$ coefficienti da calcolare, $R^n$ segue da analisi dimensionale
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-%% manca lezione 29 Novembre
+%% inizio lezione 29 Novembre / Annachiara Filippini
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Posso calcolare $V_n(R)$ sommando infiniti gusci sferici di spessore infinitesimo.
+\begin{equation}
+V_n(R)=\int_0^R A_{n-1}(r)dr (137)
+\end{equation}
+\begin{equation}
+\Rightarrow A_{n-1}=\dfrac{dV_n(R)}{dR}\overset{(136)}{=} nC_n R^{n-1}(138)
+\end{equation}
+Uguagliando (136) e (137), e usando la (138)
+\begin{equation}
+\underset{\text{integrale in cartesiane}}{\underbrace{\underset{x_1^2 + \cdots + x_n^2 \leq R}{\int \dots \int}}}=\underset{\text{in sferiche (già integrato su angoli)}}{\underbrace{C_n \int_0^R r^{n-1}dr}} (139)
+\end{equation}
+In n dimensioni: 
+\begin{equation}
+dx_1 \cdots dx_n=r^{n-1}drd\Omega_{n-1} (140)
+\end{equation}
+$ \Rightarrow d\Omega_{n-1} $ contiene la parte angolare.\\
+n=2: $d\Omega=d\theta$; n=3: $d\Omega=\sin\theta d\theta d\varphi$, ecc$\dots$ (potrei dare esplicitamente la n-1-esima variabile angolare)
+Confrontando (139) e (140)
+\begin{equation}
+\int \cdots \int d\Omega_{n-1}=nC_n (141)
+\end{equation}
+Si può calcolare $C_n$ senza introdurre esplicitamente le coordinate sferiche in n dimensioni $\Rightarrow$ Trucco: considero $f(x_1,\dots,x_n)=\exp(-x_1^2 - \dots - x_n^2)=e^{-1^2}$. Integro f su $\Rn$, sia in cartesiane che in sferiche.
+$$
+\underset{n volte}{\underbrace{\int_{-\infty}^\infty \cdots \int_{-\infty}^{\infty}}} e^{-(x_1^2 + \dots + x_n^2)}dx_1 \dots dx_n = \int_0^{\infty}r^{n-1}dr\int d\Omega_{n-1}e^{-r^2}
+$$
+$$
+\Rightarrow \underset{\text{Gauss = $\sqrt{\pi}$}}{\underbrace{\left(\int_{-\infty}^{\infty}e^{-x_1^2}dx_1 \right)^n}}= \underset{\text{esprimibile tramite $\Gamma$ di Eulero $\Rightarrow = \dfrac{1}{2}\Gamma\left(\dfrac{n}{2}\right)$}}{\underbrace{n C_n\int_0^\infty r^{n-1}e^{-r^2}dr}} \Rightarrow C_n = \dfrac{2\pi^{n/2}}{n\Gamma\left(\dfrac{n}{2}\right)}
+$$
+\begin{equation}
+\overset{(138)}{\Rightarrow}A_{n-1}(R) = \dfrac{2\pi^{n/2}}{\Gamma\left(\dfrac{n}{2}\right)}R^{n-1} (142)
+\end{equation}
+\begin{equation}
+V_n(R)=\dfrac{2\pi^{n/2}}{n\Gamma\left(\dfrac{n}{2}\right)}R^n (143)
+\end{equation}
+Se $n=2, A_1(R)=\dfrac{2\pi}{\underset{=1}{\underbrace{\Gamma(1)}}} R=2\pi R$ (superficie sfera in $\R^2$);\\
+Se $n=3, A_2(R)=\dfrac{2\pi^{3/2}}{\underset{\Gamma\left(\dfrac{3}{2}\right)=\Gamma\left(\dfrac{1}{2}+1\right)=\dfrac{1}{2}\Gamma\left(\dfrac{1}{2}\right)=\dfrac{1}{2}\sqrt{\pi}}{\underbrace{\Gamma\left(\dfrac{3}{2}\right)}}}R^2=4\pi R^2$ (superficie della sfera in $\R^3$)\\
+Cosa divertente: $\lim_{n\to \infty} V_n(R)=0=\lim_{n\to \infty}A_{n-1}(R)$ cosa inaspettata (me li aspettavo divergenti)\\
+Torniamo alle identità di Green. Inserisco (135) in (134), e faccio il $\lim_{\epsilon\to 0}\Rightarrow$ ciò che resta della (134) è 
+$$
+K_n\int_U |\x - \y|^{2-n}fd^nx=-u(y) - K_n\int_{\partial U}\sum_i \left(u\dfrac{\partial}{\partial x_i}|\x - \y|^{2-n} - |\x - \y|^{2-n} \dfrac{\partial u}{\partial x_i} \right)n_i dV
+$$
+$dV$ è "l'elemento di volume" indotto su $\partial U \Rightarrow$ sarebbe in realtà una superficie in n-1 dimensioni
+\begin{equation}
+\Rightarrow u(y)=-K_n\int_U |\x - \y|^{2-n}f d^n x - K_n\int_{\partial U} \left(u\dfrac{\partial}{\partial n}|\x - \y|^{2-n} - |\x - \y|^{2-n} \dfrac{\partial u}{\partial n} \right)dV (144)
+\end{equation}
+Formula generale del potenziale (III identità di Green)\\
+$\Rightarrow$ importante in elettrostatica/dinamica, per esemio da soluzione dell'equazioni di Poisson (u sarebbe il potenziale elettricom integro sul dominio la densità di carica; $\dfrac{\partial u}{\partial u}$ sarebbe il campo elettrico).\\
+Questa formula ha alcune conseguenze: per esempio, sia $\varphi$ di supporto compatto e $\y=0$. Sia $\partial U$ fuori dal compatto in cui $\varphi \neq 0$ (integrale sul bordo non contribuirà)\\
+(144) ci dà: 
+$$
+\varphi(0)=-K_n\int |\x|^{2-n}\Delta \varphi d^n x=<\delta,\varphi>=\int \delta(\x)\varphi(\x)d^n x
+$$
+Integro per parti due volte, non ho contributo di bordo perchè il supporto è compatto)
+$$
+-K_n\int\varphi \Delta |\x|^{2-n}d^nx=\int \varphi(\x)\delta(\x) d^nx
+$$
+devo quindi avere
+\begin{equation}
+\Delta(\underset{\text{funzione di Green del }\Delta}{\underbrace{-K_n|\x|^{2-n}}})=\delta(\x) (145)
+\end{equation}
+Abbiamo concluso la parte sulle equazioni lineari! Adesso parleremo delle equazioni non lineari (importanti perchè il nostro mondo è altamente non lineare).
 
+\section{Equazioni differenziali non lineari}
+I metodo per risolverle: metodo delle caratteristiche (o Lagrange-Charpit).\\
+Considero equazioni quasi lineari del I ordine (dipendenza da U ma non dalla derivata)
+\begin{equation}
+a(x,y,u)u_x + b(x,y,u)u_y + c(x,y,u)=0 (146)
+\end{equation}
+Suppongo di conoscere una soluzione $u(x,y)$ e considero la curva $(x(t),y(t))$ che soddisfa
+\begin{equation}
+\begin{matrix}
+\dfrac{dx}{dt}=a(x(t),y(t),u(x(t),y(t))) \\
+\dfrac{dy}{dt}=b(x(t),y(t),u(x(t),y(t)))
+\end{matrix} (147)
+\end{equation}
+Lungo questa curva ho 
+\begin{equation}
+\dfrac{d}{dt}u(x(t),y(t))=u_x \dfrac{dx}{dt} + u_y\dfrac{dy}{dt}\overset{(147)}{=}au_x + bu_y \overset{(146)}{=}-c (148)
+\end{equation}
+La curva $(x(t),y(t))$ è una curva caratteristica.\\
+Dimostrazione: le curve caratteristiche sono date da 
+\begin{equation}
+S(x,y)=0,\quad a\dfrac{\partial S}{\partial x} + b\dfrac{\partial S}{\partial y}=0 (149)
+\end{equation}
+$\Rightarrow$ soddisfa (127): $\sum_{|j|=m} a_jp^j =0$, con $p^j=\left(\dfrac{\partial S}{\partial x_1}\right)^{j_1}\cdots\left(\dfrac{\partial S}{\partial x_n}\right)^{j_n}$ ( in questo caso $m=1,n=2,x_{1,2}=x,y$). Lungo essa 
+\begin{equation}
+S=0 \Rightarrow dS=0 \Rightarrow \dfrac{\partial S}{\partial x}\dot{x}+\dfrac{\partial S}{\partial y}\dot{y} =0 (150)
+\end{equation}
+Da (149), il vettore $(a,b) \perp \underset{\nabla S}{\underbrace{(S_x,S_y)}}$; d'altra parte, da (150) segue che anche $(\dot{x},\dot{y}) \perp \underset{\nabla S}{\underbrace{(S_x,S_y)}}$ e quindi $(a,b)\propto (\dot{x},\dot{y})$. Riparametrizzo la curva per assorbire il fattore di proporzionalità, cioè in modo che $(a,b)=(\dot{x},\dot{y})$ $\left( \text{N.B. :} \dfrac{dx}{dt}=\dfrac{dx}{dt'}\dfrac{dt'}{dt}\right)$
+%immagine curva caratteristica con x.,y. e Sx Sy
+Le (147) sono soddisfatte. $\qquad \blacksquare$\\
+Tutto ciò suggerisce un metodo per risolvere (146). Suppogo di avere una curva $\Gamma$ data da $(x_0(\lambda),y_0(\lambda))$ su cui sono definiti dei calori iniziali $U=U_0(\lambda)$. Supponiamo che sulla curva valga
+\begin{equation}
+\det \left(\begin{matrix}
+\dfrac{dx_0}{ds} & a \\
+\dfrac{dy_0}{ds} & b
+\end{matrix}\right)\neq 0(151)
+\end{equation}
+cioè $\Gamma$ non è caratteritica (altrimenti $\nabla S \propto (a,b)$ e potrei riparametrizzare come prima). $\forall s$, risolvo 
+\begin{equation}
+\begin{matrix}
+\dfrac{dx}{dt}=a(x,y,u) \\
+\dfrac{dy}{dt}=b(x,t,u) \\
+\dfrac{du}{dt}=-c(x,y,u)
+\end{matrix} (152)
+\end{equation}
+con condizioni iniziali
+\begin{equation}
+\begin{matrix}
+x(t=0,s)=x_0(s) \\
+y(t=0,s)=y_0(s) \\
+u(t=0,s)=u_0(s) \\
+\end{matrix} (153)
+\end{equation}
+Dal parametro s dipende la soluzione (vedi esempio dopo). Ho espresso $x,y,u$ in termini di $t,s$.
+(151) $\underset{\underset{\text{teo. funzione inversa}}{\uparrow}}{\Rightarrow}$ posso esprimere  t,s in funzione di x,y in un intorno di $\Gamma$.\\
+Controllo che questo metodo dia soluzioni di (146)
+$$
+\dfrac{\partial}{\partial t}u(x(t,s),y(t,s)=u_x \dfrac{\partial x}{\partial t} + u_y \dfrac{\partial y}{\partial t}\overset{(152)}{=}au_x + bu_y
+$$
+d'altra parte
+$$
+(152) \Rightarrow  \dfrac{\partial }{\partial t} u(x(t,s),y(t,s))=-c
+$$
+$\Rightarrow$ soddisfatta (146).\\
+Esempio per chiarire: $xu_x + (x+y)u_y = u+1$ (lineare). \\
+Come curva, uso $u(x,0)=x^2$. Quali sono le equazioni caratteristiche (!52)?
+$$
+\Rightarrow \dot{x}(=a)=x; \quad \dot{y}(=b)=x+y; \quad \dot{u}(=-c)=u+1
+$$
+N.B.: ho trasformato in equazioni differenziali ordinarie, al prezzo di averne 3 al posto di 1.
+%immagine curva su cui prescrivo la u=x2, testo a fianco
+Curva iniziale può essere parametrizzzata nella forma $x_0(s)=s, y_0(s)=0, u_0(s)=s^2$. Per vedere che la curva sia caratteristica calcolo
+$$
+\left|\begin{matrix}
+\dfrac{dx_0}{ds} & a \\
+\dfrac{dy_0}{ds} & b
+\end{matrix}\right| = \left| \begin{matrix}
+1 & x_0 \\
+0 & x_0+y_0
+\end{matrix} \right| = x_0 + y_0 = x_0 \neq 0 \Rightarrow \text{ok}
+$$
+Integrando l'equazione per x, ho $\dot{x}=x \Rightarrow x=Ce^t, x(t=0):=x_0 =s \Rightarrow C=s \Rightarrow x=se^t$. Poi ho $\dot{y}-y=x=se^t$.\\
+La soluzione generale dell'equazione omogenea è $y=Ae^t$; per ricavare quella particolare della non omogenea, uso il metodo di variazioen delle costanti: scrivo $y=A(t)e^t \Rightarrow \dot{y}=\dot{A}e^t + Ae^t := y+se^t = Ae^t + se^t \Rightarrow \dot{A}=s \Rightarrow A=st$. La soluzione generale dell'equazione non omogenea diventa $y=ce^t + st e^t$.\\
+impongo che $y(t=0,s)=y_0(s)=0 \Rightarrow c=0 \Rightarrow y=ste^t$. Infine risolvo $\dot{u}=u+1\Rightarrow \dfrac{du}{u+1}=dt \Rightarrow ln(u+1)=t+\ln C \Rightarrow \exp (u+1) = Ce^t$ e impongo condizioni iniziali $u(t=0,s)=u_0(s)=s^2 \Rightarrow c-1=s^2 \Rightarrow u=(s^2 + 1)e^t -1$. Ora esprimo t,s in funzione di x,y: $y=ste^t =tx \Rightarrow t=y/x$ e quindi $s=xe^{-t}=xe^{-y/x}$. Sostituisco nell'espressione per u: $u(x,y)=x^2e^{-y/x}+e^{-y/x}-1$\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% inizio lezione 30 novembre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%visto il metodo delle costanti
 \underline{Compito}: generalizzare il metodo descritto sopra al problema
 $$
 \sum_{i=1}^n a_i(\x,u)u_{x_i} + c(\x,u)=0
 $$
-con $\x = (x_1,\dots,x_n)$, e i dati iniziali sono dati nella forma $\x=\x_0(\bar{s}), u=u_0(\bar{s})$ con $\bar{s}=(s_1,\dots,s_{n-1}$. L'equazione per $\x$ defnisce un'ipersuperficie di dimensione n-1 in $\Rn$.\\
+con $\x = (x_1,\dots,x_n)$, e i dati iniziali sono dati nella forma $\x=\x_0(\bar{s}), u=u_0(\bar{s})$ con $\bar{s}=(s_1,\dots,s_{n-1})$. L'equazione per $\x$ defnisce un'ipersuperficie di dimensione n-1 in $\Rn$.\\
 -Ora vorremmo generalizzare questa costruzione al problema non-quasilineare
 \begin{equation}
 F(x,y,u,p,q)=0, \quad p=u_x, q=u_y (154)
@@ -3009,7 +3150,7 @@ Usando questa nella (165) otteniamo
 $$
 \dfrac{\partial H}{\partial t} = - F_u\left(\dfrac{\partial u}{\partial s} - p\dfrac{\partial x}{\partial s} - q\dfrac{\partial y}{\partial s}\right)=-F_u H
 $$
-La soluzione di questa equazione differeziale ordinaria con condizione iniziale $H(0,s)=0$ è $H(t,s)=0$
+La soluzione di questa equazione differenziale ordinaria con condizione iniziale $H(0,s)=0$ è $H(t,s)=0$
 [Dimostrazione in appendice
 $$
 \dfrac{\dfrac{\partial H}{\partial t}}{H}=-F_u \Rightarrow \dfrac{\partial}{\partial t}\ln H = -F_u
@@ -3096,7 +3237,251 @@ F(\x_0(\bar{s}),u_0(\bar{s}),p_0(\bar{s})=0\\
 \dfrac{\partial u_0(\bar{s}}{\partial s_j}=\sum_{k=1}^n p_{k,0}(\bar{s})\dfrac{\partial x_{k,0}(\bar{s})}{\partial s_j}, \quad j=1,\dots,n-1
 \end{matrix} (170')
 \end{equation}
-che generalizzano le (161),(162).
+che generalizzano le (161),(162).\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 6/12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\underline{Esempi per Lagrange-Charpit}:\\
+i) $u=u_x^2 - 3u_y^2$, $u(x,0)=x^2$
+$$
+\Rightarrow F(x,y,u,p,q)=p^2-3q^2-u, \qquad F_x=0=F_y, \quad F_p=2p, \quad F_q=-6q, F_u-1
+$$
+Sia $x_0(s)=s \Rightarrow y_0(s)=0, u_0(s)=s^2$, $p_0(s),q_0(s)$ sono soluzioni del sistema
+\begin{equation}
+\begin{matrix}
+p_0^2 - 3q_0^2=u_0=s^2 (vedi (161))\\
+\dfrac{du_0}{ds}=p_0 \dfrac{dx_0}{ds}+q_0\dfrac{dy_0}{ds}(162)
+\end{matrix}
+\end{equation}
+$$
+\begin{matrix}
+\Rightarrow 2s=p_0\\
+\Rightarrow 4s^2 - 3q_0^2 = s^2 \Rightarrow q_0=\pm s
+\end{matrix}
+$$
+Prendiamo per esempio $q_0=s$
+$$
+(160): \dot{x}=2p, \dot{y}=-6q, \dot{u}=2p^2 - 6q^2 = 2(p^2-3q^2)=2u, \dot{p}=p, \dot{q}=q
+$$
+$$
+\dot{u}=2u \Rightarrow u=s^2e^{2t}
+$$
+$$
+\dot{p}=p \Rightarrow p=2se^t
+$$
+$$
+\dot{q}=q \Rightarrow q=se^t
+$$
+Sostituisci nelle equazioni caratteristiche per x e y
+$$
+\dot{x}=2p=4se^t \Rightarrow x= 4s(e^t -1) +s
+$$
+Simile:
+$$
+y=-6s(e^t -1)
+$$
+Invertire:
+$$
+e^t-1=-\dfrac{y}{6s} \Rightarrow x=4s\left(-\dfrac{y}{6s}\right) + s=-\dfrac{2}{3}y + s \Rightarrow s=x+\dfrac{2}{3}y
+$$
+$$
+e^t=1-\dfrac{y}{6s}=1-\dfrac{y}{6x+4y} 
+$$
+$$
+\Rightarrow u=s^2 e^{2t}= \left(x+\dfrac{2}{3}y\right)^2\left(1-\dfrac{y}{6x+4y}\right)^2=\left(x+\dfrac{y}{2}\right)^2
+$$
+Se avessimo scelto $q_0(S)=-s$, avremmo ottenuto $u=\left(x-\dfrac{y}{2}\right)^2$\\
+ii)
+$$
+u_x^2 - u_y^2 = x^2 + y^2, u(x,0)=x \Rightarrow F = p^2 - q^2 - x^2 + y
+$$
+$$
+F_p=2p, F_q=2q, F_x = -2x, F_y=1, F_u=0
+$$
+$$
+x_0(s)=s, y_0(s)=0, u_0(s)=s, p_0^2 - q_0^2 = s^2
+$$
+$$
+\dfrac{du_0}{ds}=p_0\dfrac{dx_0}{ds}+q_0\dfrac{dy_0}{ds} \Rightarrow 1=p_0
+$$
+$$
+\Rightarrow q_0^2=1-s^2 \Rightarrow \text{ prendi per esempio } q_0=\sqrt{1-s^2}
+$$
+$$
+(160): \dot{x}=2p, \dot{y}=-2q, \dot{u}=2p^2 - 2q^2, \dot{p}=2x, \dot{q}=-1
+$$
+$$
+q=-t+\sqrt{1-s^2}
+$$
+$$
+\dot{y}=-2q=2t-2\sqrt{1-s^2} \Rightarrow y= t^2-2t\sqrt{1-s^2}
+$$
+$$
+\ddot{p}=2\dot{x}=4p \Rightarrow p=Ae^{2t} + Be^{-2t} \Rightarrow \dot{p}=2Ae^{2t}-2Be^{-2t}=2x \Rightarrow x=Ae^{2t}-Be^{-2t}
+$$
+$$
+p_0=A+B=1, x_0=A-B=s \Rightarrow A=\dfrac{1+s}{2}, \\B=\dfrac{1-s}{2}
+$$
+$$
+p=\dfrac{1+s}{2}e^{2t}+\dfrac{1-s}{2}e^{-2t}, x=\dfrac{1+s}{2}e^{2t}-\dfrac{1-s}{2}e^{-2t}
+$$
+$$
+\dot{u}=2(p^2-q^2)=2(x^2-y) = \dfrac{(1+s)^2}{2}e^{4t} - (1-s)^2+\dfrac{(1-s)^2}{2}e^{-4t}-2t^2 + 4t\sqrt{1-s^2}
+$$
+$$
+\Rightarrow u=\dfrac{(1+s)^2}{8}e^{4t} - t(1-s^2) - \dfrac{(1-s)^2}{8}e^{-4t}-\dfrac{2}{3}t^3 + 2t^2\sqrt{1-s^2}+\dfrac{s}{2}
+$$
+Invertire: $\rightarrow$ sono equazioni trascendenti, è possilile dare la soluzione in forma parametrica, $u=u(t,s), x=x(t,s), y=y(t,s)$.\\
+iii)
+$$
+u_xu_y=1, u(x,0)=\ln x \rightarrow esercizio
+$$
+$$
+\left(soluzione: u(x,y)=-1+\sqrt{1+4xy}+\ln \left(\dfrac{2x}{1+\sqrt{1+4xy}}\right)\right)
+$$
+iv) esempio di equazione senza parametro t
+$$
+u=pqxy \Rightarrow F=pqxy-u
+$$
+$$
+(168)\Rightarrow \dfrac{dx}{qxy}=\dfrac{dy}{pxy} =\dfrac{du}{2pqxy}=\dfrac{dp}{-pqy+p}=\dfrac{dq}{-pqx+q}
+$$
+(non c'è una ricetta standard per risolvere questo tipo di equazioni)\\
+osservo che $2pqxy=2u$
+$$
+\dfrac{dx}{qxy}=\dfrac{dp}{p(1-qy)}\Rightarrow \dfrac{d\ln p}{d\ln x})=\dfrac{1}{qy}-1 (*)
+$$
+$$
+\dfrac{dy}{pxy}=\dfrac{dq}{q(1-px)}\Rightarrow \dfrac{s \ln q}{d \ln y}=\dfrac{1}{px}-1 (**)
+$$
+$$
+\dfrac{dx}{qxy}=\dfrac{du}{2u}\overset{(*)}{\Rightarrow} \left(\dfrac{d\ln p}{d\ln x}+1\right)d\ln x = \dfrac{du}{2u}
+$$
+[conti espliciti
+$$
+\text{sx: }\dfrac{dx}{x}\cdot \dfrac{1}{qy}\overset{(*)}{=}\dfrac{dx}{x}\left(\dfrac{d\ln p}{d\ln x}+1\right)=d\ln x\left(\dfrac{d\ln p}{d\ln x}+1\right)
+$$
+]
+$$
+\Rightarrow d\ln p + d\ln x=\dfrac{1}{2}d\ln u \Rightarrow xp Cu^{\dfrac{1}{2}} (***)
+$$
+$$
+\dfrac{dy}{pxy}=\dfrac{du}{2u}\overset{(**)}{\Rightarrow}\left(\dfrac{d\ln q}{d\ln y}+1\right)d\ln y=\dfrac{1}{2}d\ln u
+$$
+$$
+\Rightarrow yq=\tilde{C}u^{\dfrac{1}{2}} (****)
+$$
+$$
+pqxy=u \Rightarrow \tilde{C}=\dfrac{1}{C}
+$$
+$$
+(***) \Rightarrow xu_x = Cu^{\dfrac{1}{2}}\overset{\text{separando variabili}}{\Rightarrow}\ln x=\dfrac{2}{C}\sqrt{u}-\underset{\text{"cost." di integrazione}}{\ln f(y)}
+$$
+In modo analogo:
+$$
+(****)\Rightarrow \ln y = 2C \sqrt{u} - \underset{\text{"cost." di integrazione}}{\ln g(x)}
+$$
+$$
+\Rightarrow 2\sqrt{u} = C\ln (xf(y) = \dfrac{1}{C}\ln (yg(x)) \Rightarrow C \underset{\text{=cost. }\equiv \ln a}{\underbrace{\ln x - \dfrac{1}{c}\ln g(x)}} = \underset{\ln a}{\underbrace{\dfrac{1}{C}\ln y - C\ln f(y)}}
+$$
+$$
+\ln \dfrac{x^C}{g(x)^{1/C}}=\ln a, \ln \dfrac{y^{1/C}}{f(y)^C} = \ln a
+$$
+$$
+g(x)=\dfrac{x^{C^2}}{a^C}, f(y)=\dfrac{y^{1/C^2}}{a^{1/C}}
+$$
+$$
+\Rightarrow 2\sqrt{u}=\dfrac{1}{C} (\ln y + \ln g(x)) = \dfrac{1}{C}(\ln y + C^2 \ln x - C \ln a)
+$$
+$$
+\Rightarrow u=\dfrac{1}{4}\left(C\ln x + \dfrac{1}{C}\ln y + b\right)^2
+$$
+i dati iniziali sono contenuti nelle due costanti di integrazione.\\
+Commento: equazioni di Hamilton-Jacobi
+$$
+\underset{\text{"tempo"}}{\dfrac{\partial S}{\partial x_1}}+H(\underset{\text{coord. spaziali}}{\underbrace{x_1,\dots,x_n}};\underset{\text{impulsi}}{\underbrace{\dfrac{\partial S}{\partial x_2}, \dots,\dfrac{\partial S}{\partial x_n}}}; x_1)=0
+$$
+S: funzione principale di Hamilton, corrisponde a $F= p_1 + H(x_1,x_2,\dots,x_n;p_2,\dots,p_n)$
+$$
+\Rightarrow F_{p_1}=1, F_{p_j}=\dfrac{\partial H}{\partial p_j} \quad (j=2,\dots,n), F_{x_i}=\dfrac{\partial H}{\partial x_i} \quad (i=1,\dots,n), F_u=0 \quad (u\equiv S)
+$$
+$$
+(170) \Rightarrow \dot{x_1}=1, \dot{p_1}=-F_{x_1}-p_1F_u = -\dfrac{\partial H}{\partial x_1}
+$$
+$$
+\left.\begin{matrix}
+\dot{x_j}=\dfrac{\partial H}{\partial p_j}, \quad j=2,\dots,n \\
+\dot{p_j}=-F_{x_j}-p_jF_u=-\dfrac{\partial H}{\partial x_j}, j=2,\dots,n
+\end{matrix}\right\} \text{equazioni canoniche di Hamilton}
+$$
+$$
+\dot{u}=\underset{-H}{\underbrace{p_1}}\underset{1}{\underbrace{F_{p_1}}} + \sum_{j=2}^n p_j \underset{\dfrac{\partial H}{\partial p_j}=\dot{x_j}}{\underbrace{F_{p_j}}} 
+$$
+$$
+\Rightarrow \dot{u}=-H + \sum_{j=2}^n p_j\dot{x}_j=L \quad \text{(Lagrangiana)}
+$$
+$$
+\Rightarrow u=\int L dt \quad \text{azione}
+$$
+\section{L'esponenziale ordinato cronologicamente}
+- Vogliamo risolvere 
+\begin{equation}
+i\hbar \dfrac{d}{dt}\psi = H \psi (171a)
+\end{equation}
+(che include equazioni difficili matriciali del tipo 
+\begin{equation}
+\dot{\x}(t)=At)\x(t) (171b)
+\end{equation}
+con A matrice finito o infinito dimensionale
+\begin{equation}
+\psi(t)=\underset{\text{operatore di evoluzione temporale}}{\underset{\uparrow}{U(t,t_0)}}\psi(t_0) (172)
+\end{equation}
+$$
+\Rightarrow i\hbar \dfrac{d}{dt}\psi = i\hbar \dfrac{\partial}{\partial t}U(t,t_0)\psi(t_0)\overset{!}{=}H\psi = HU(t,t_0)\psi(t_0)
+$$
+\begin{equation}
+\Rightarrow i\hbar \dfrac{\partial }{\partial t}U(t,t_0)=HU(t,t_0) (173)
+\end{equation}
+i) H non dipende esplicitamente dal tempo: \\
+Soluzione della (173):
+$$
+U(t,t_0)=\exp \left(-\dfrac{i}{\hbar}(t-t_0)H\right)
+$$
+ii) H dipende esplicitamente dal tempo ma $[H(t),H(t')]=0$:\\
+(per esempio campo magnetico omogeneo $\bar{B}=B(t)\bar{e_z}$)
+$$
+\Rightarrow U(t,t_0)=\exp \left(-\dfrac{i}{\hbar}\int_{t_0}^t dt' H(t')\right)
+$$
+iii) $H=H(t)$ e $[H(t),H(t')]\neq 0$ per $t\neq t'$:\\
+(caso piu interessante e piu realistico)\\
+-Riscrivi la (173) come equazione integrale:
+\begin{equation}
+U(t,t_0) = I - \dfrac{i}{\hbar}\int_{t_0}^t dt' H(t')U(t',t_0) (174)
+\end{equation}
+($\rightarrow$ condizione iniziale $U(t,t_0)=1$ già implementata).\\
+Risolvi la (174) iterativamente: \\
+Sostituisci il membro destro in se stesso:
+\begin{equation}
+\begin{matrix}
+\Rightarrow U(t,t_0)=\sum_{n=0}^\infty U^{(n)}(t,t_0)\\
+U^{(n)}(t,t_0)=-\dfrac{i}{\hbar}\int dt' H(t') U^{(n-1)}(t',t_0)\\
+u^{(0)}(t,t_0)=I
+\end{matrix} (175)
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
