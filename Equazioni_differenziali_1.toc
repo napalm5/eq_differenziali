@@ -21,4 +21,7 @@
 \contentsline {section}{\numberline {3.1}Il problema di Cauchy}{38}
 \contentsline {section}{\numberline {3.2}La questione della buona posizione del problema di Cauchy}{41}
 \contentsline {section}{\numberline {3.3}Classificazione di equazioni differenziali di ordine superiore e in pi\IeC {\`u} variabili}{43}
-\contentsline {chapter}{\numberline {4}Carica immagine}{46}
+\contentsline {section}{\numberline {3.4}La formula di Green}{46}
+\contentsline {section}{\numberline {3.5}Equazioni differenziali non lineari}{49}
+\contentsline {section}{\numberline {3.6}L'esponenziale ordinato cronologicamente}{57}
+\contentsline {chapter}{\numberline {4}Carica immagine}{58}
