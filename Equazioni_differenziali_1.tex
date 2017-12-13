@@ -3469,16 +3469,203 @@ u^{(0)}(t,t_0)=I
 \end{matrix} (175)
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 13/12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+$\rightarrow$ relazione di ricorrenz, risolta da
+\begin{equation}
+U^{(n)}(t,t_0)=\left(-\dfrac{i}{\hbar}\right)^n\int_{t_0}^tdt_1 \int_{t_0}^{t_1}dt_2 \cdots \int_{t_0}^{t_{n-1}}dt_n \cdot H(t_1)H(t_2)\cdot \dots \cdot H(t_n) (176)
+\end{equation}
+N.B. :1) i limiti superiori degli integrali sono tutti diversi\\
+2) l'ordine delle H non è arbitrario. Abbiamo $t_n<t_{n-1}<\dots <t_1<t$\\
+-Lo sviluppo 
+$$
+U(t,t_0)=1+\sum_{n=1}^\infty \left(-\dfrac{i}{\hbar}\right)^n \int_{t_0}^tdt_1 \int_{t_0}^{t_1}dt_2 \cdots \int_{t_0}^{t_{n-1}}dt_n \cdot H(t_1)\cdot \dots \cdot H(t_n)
+$$
+si chiama \underline{serie di Dyson}.\\
+\underline{L'esponenziale ordinato cronologicamente} è definito da
+\begin{equation}
+T\exp\left(-\dfrac{i}{\hbar}\int_{t_0}^t dt' H(t')\right):=1+\sum_{n=1}^\infty \left(-\dfrac{i}{\hbar}\right)^n \int_{t_0}^tdt_1 \int_{t_0}^{t_1}dt_2 \cdots \int_{t_0}^{t_{n-1}}dt_n \cdot H(t_1)\cdot \dots \cdot H(t_n) = U(t,t_0) (178)
+\end{equation}
 
+%soluzione di problema di compito
+$$
+u_{xx}-u_t =0, \qquad u(0,t)=A_n\sin nt ,\quad u_x(0,t)=0
+$$
+%immafine problema parabolico soluzione
+Più in generale: poniamo $u(0,t)=g(t)$\\
+Ansatz di separazione:
+$$
+u(x,t)=v(x)w(t)
+$$
+$$
+u_{xx}=v''(x)w(t), \quad u_t=v(x)w'(t)
+$$
+$$
+u_{xx}=u_t \Rightarrow v'' w=vw' \Rightarrow \underset{\text{dip. solo da x}}{\dfrac{v''}{v}} = \underset{\text{dip. solo da t}}{\dfrac{w'}{w}} = k \in C= cost.
+$$
+$$
+v''=kv \Rightarrow v(x)=Ae^{\sqrt{k}x} + B e^{-\sqrt{k} x}
+$$
+$$
+w'=kw \Rightarrow w(t)=Ce^{kt}
+$$
+$$
+\Rightarrow u_k(x,t)=e^{kt}\left(A_k e^{\sqrt{k} x}  + B_k e^{-\sqrt{k}x}\right)
+$$
+(senza perdere generalità ho posto C=1 assorbendolo in A e B)
+$ \Rightarrow$ soluzione generale: sovrapposizione delle $u_k(x,t)$
+$$%int sarebbe simbolo di somma e integrale sovrapposto
+u(x,t)=\int_{k\in C} e^{kt}\left(A_k e^{\sqrt{k} x}  + B_k e^{-\sqrt{k}x}\right) 
+$$
+$$
+\Rightarrow u_x(x,t)=\int_{k\in C} e^{kt}\sqrt{k}\left(A_k e^{\sqrt{k} x}  - B_k e^{-\sqrt{k}x}\right) 
+$$
+$=0$ in $x=0$ se $A_k = B_k$
+$$
+\Rightarrow u(x,t)=\int_{k\in C} 2A_ke^{kt}\cosh \sqrt{k}x
+$$
+$$
+u(0,t)=\int_{k\in C} 2A_ke^{kt}\overset{!}{=}g(t)=\dfrac{1}{2\pi}\int_{-\infty}^{\infty}e^{i\chi t}\underset{\text{trasf. di Fourier di g(t)}}{\underset{\uparrow}{\tilde{g}}}(\chi)d\chi
+$$
+$\Rightarrow$ k immaginaria, $k=i\chi$, $2A_k = \dfrac{\tilde{g}(\chi)}{2\pi}$
+$$
+\Rightarrow u(x,t) =\dfrac{1}{2\pi}\int_{-\infty}^{\infty}\tilde{g}(\chi)e^{i\chi t}\cosh(\sqrt{i\chi}x d\chi
+$$
+N.B. $g(t)=g(t)^* \Rightarrow \tilde{g}(\chi)=\tilde{g}(-\chi)^*$ questo garantisce la realtà di $u(x,t) (\rightarrow \text{ esercizio!})$\\
+Nel nostro esempio: $g(t)=A_n\sin nt\rightarrow$ trasformata di Fourier:
+$$
+\tilde{g}(\varkappa)=\int_{-\infty}^{\infty}dt e^{-i\varkappa t}A_n \sin nt
+$$
+$$
+\dfrac{A_n}{2i}\int_{-\infty}^{\infty}dt e^{-i\varkappa t}\left(e^{int}-e^{-int}\right)
+$$
+$$
+=\dfrac{A_n}{2i}\underset{2\pi \delta(n-\varkappa)}{\int_{-\infty}^\infty dt e^{it(n-\varkappa)}}-\dfrac{A_n}{2i}\underset{2\pi \delta(n+\varkappa)}{\int_{-\infty}^\infty dt e^{-it(n+\varkappa)}}
+$$
+$$
+=i\pi A_n\left(\delta(n+\varkappa)-\delta(n-\varkappa)\right)
+$$
+$$
+\Rightarrow u(x,t)=\dfrac{iA_n}{2}\left(e^{-int}\cosh(\sqrt{-in}x) - e^{int}\cosh(\sqrt{in}x)\right)
+$$
+Senza perdere generalità: $n>0$ ($\sin(-nt)=-\sin(nt)$, riassorbile il - in $A_n$)\\
+Usa 
+$$
+\sqrt{\pm in} =\dfrac{n}{2}(1\pm i)
+$$
+$$
+\cosh(\alpha + \beta)=\cosh \alpha \cosh \beta + \sinh \alpha \sinh \beta
+$$
+$$
+\sin(\alpha \pm \beta)=\sin \alpha \cos \beta \pm \cos \alpha \sin \beta 
+$$
+$$
+\cosh(iz)=\cos z, \qquad \sinh(iz)=i\sin z
+$$
+$$
+\Rightarrow u(x,t)=A_n\left[\cos nt \sinh \left(\sqrt{\dfrac{n}{2}}x \right)\sin \left(\sqrt{\dfrac{n}{2}}x \right) + \sin nt \cosh \left(\sqrt{\dfrac{n}{2}}x \right) \cos \left(\sqrt{\dfrac{n}{2}}x \right)\right]
+$$
+oppure
+$$
+u(x,t)=\dfrac{A_n}{2}\left[e^{\sqrt{\dfrac{n}{2}}x}\sin\left(nt+\sqrt{\dfrac{n}{2}}x\right) + e^{-\sqrt{\dfrac{n}{2}}x}\sin\left(nt-\sqrt{\dfrac{n}{2}}x  \right) \right], \quad \text{q.e.d.}
+$$
 
+\subsection{L'equazione di Korteweg - De Vries (KdV)}
+\begin{equation}
+\partial_t u + 6u\partial_xu+\partial^3_x u=0 (179)
+\end{equation}
+con $u=u(x,t), \quad x\in \R, t>0$\\
+-descrive delle onde in acqua non troppo profonda, ha delle applicazioni in molti rami della fisica, p.e. sistemi integrabili, teoria delle stringhe $\dots$.\\
+-equazione del 3 ordine\\
+-ha delle soluzioni chiamate \underline{onde solitarie}\\
+Ansatz: 
+\begin{equation}
+u(x,t)=f(x-\underset{\text{velocità di propagazione dell'onda}}{\underset{\uparrow}{c}}t) (180)
+\end{equation}
+nuova variabile $\xi:= x-ct$, $u(x,t)=f(\xi)$
+$$
+(179)= \dfrac{\partial \xi}{\partial t}\dfrac{df}{d\xi}+6f(|xi)\dfrac{\partial \xi}{\partial x}\dfrac{df}{d\xi}+ \left(\dfrac{\partial \xi}{\partial x}  \right)^3\dfrac{\partial^3 f}{\partial \xi ^3}=0
+$$
+$$
+\dfrac{\partial \xi}{\partial t}=-c, \quad \dfrac{\partial \xi}{\partial x}=1, \quad f'=\dfrac{df}{d\xi}
+$$
+\begin{equation}
+\Rightarrow -cf' + 6ff' + f'''=0 (181)
+\end{equation}
 
-
-
-
-
-
-
+Imponiamo ora una condizione fondamentale sul comportamento di f, ovvero che $f\to 0, f'\to 0, f''\to 0$ per $\xi \to \pm \infty$
+%immagine condizione su f
+\begin{equation}
+(181)\Rightarrow -cf' + (3f^2)' + f'''=0(182)
+\end{equation}
+con le nostre ipotesi
+\begin{equation}
+\Rightarrow -cf + 3f^2 + f''=cost=0 (183)
+\end{equation}
+Moltiplica la (183)con $f'$:
+$$
+\Rightarrow f'f'' + 3f^2f'-cf'f=0 
+$$
+\begin{equation}
+\Rightarrow \left(\dfrac{1}{2}f'^2\right) + (f^3)' - \dfrac{c}{2}(f^2)'=0 (184)
+\end{equation}
+$$
+\Rightarrow \dfrac{1}{2}f'^2+f^3-\dfrac{c}{2}f^2 = cost=0
+$$
+a causa delle nostre condizioni su $f,f',f''$
+\begin{equation}
+\Rightarrow f'=\pm f\sqrt{c-2f}, \quad f\le \dfrac{c}{2} (185)
+\end{equation}
+Scegliamo il segno meno (altrimenti mandi $\xi$ in $-\xi$)
+$$
+\Rightarrow \dfrac{df}{d\xi}=-f\sqrt{c-2f}\Rightarrow\int_{\dfrac{c}{2}}^{f(\xi)}\dfrac{-df}{f\sqrt{x-2f}}=\int_{\xi_0}^{\xi}d\xi' \text{(sep. di var.)}
+$$
+$$
+\Rightarrow\int_{f(\xi)}^{\dfrac{c}{2}}\dfrac{df}{f\sqrt{c-2f}}=\xi - \xi_0
+$$
+$$
+f=\dfrac{c}{2\cosh^2 z},\quad -\infty<z<\infty, \quad df=-\dfrac{c\sinh z}{\cosh^3 z}dz
+$$
+$$
+\dfrac{df}{f\sqrt{c-2f}}=\dfrac{-c \sinh z}{\cosh^3 z\dfrac{c}{2\cosh^2z}\sqrt{c-\dfrac{c}{\cosh^2 z}}}dz
+$$
+$$
+=\dfrac{-2\sinh z dz}{\sqrt{\underset{c\sinh^2 z}{c\cosh^2z - c}}}
+$$
+$$
+\int_{f(\xi)}^{c/2}\dfrac{df}{f\sqrt{c-2f}}=\xi - \xi_0
+$$
+$$
+\Rightarrow - \int_z^0 \dfrac{2}{\sqrt{c}}dz'=\xi - \xi_0 \Rightarrow\dfrac{2}{\sqrt{c}}z=\xi - \xi_0
+$$
+$$
+\Rightarrow f(\xi)=\dfrac{c}{2\cosh^2 \left(\dfrac{\sqrt{c}}{2}(\xi-\xi_0)\right)}
+$$
+$$
+\Rightarrow u(x,t)=\dfrac{c}{2}\dfrac{1}{\cosh^2 \left[\dfrac{\sqrt{c}}{2}(x-ct-\xi_0)\right]}
+$$
+N.B.: $f(\xi)=\dfrac{c}{2}$\\
+Dall'espressione (183) $f'' + 3f^2 - cf=0 \Rightarrow f''(\xi_0)=-\dfrac{c^2}{4}$
+%immagine crescita campana
+$\Rightarrow$ al crescere della velocità, l'onda diventa più alta e più sottile.
+\subsection{Le trasformazioni di B$\ddot{\textbf{a}}$cklund}
+Per ricavare le soluzioni delle equazioni di Liouville e di sine-Gordon introduciamo uno strumento molto utile per la risoluzione di olte e quaioni differenziali a derivate parziali non lineari, ovvero le trasformazioni di B$\ddot{a}$cklund.\\
+Per semplicità ci limitiamo al caso di 2 variabili $(x,y)$.\\
+L'idea è quella di cercare le soluzioni di un'equazione differenziale del tipo
+$$
+L u=0
+$$
+tramite una funzione ausiliare $v(x,y$). Questa funzione è legata a $u(x,y)$ tramite 2 equazioni
+$$
+B_i(u,v,\partial_x u, \partial_y u, \partial_x v, \partial_y v,x,y)=0, \quad i=1,2
+$$
+Queste 2 equazioni garantiscono che u sia una soluzione dell'equazioe differenziale in esame se e solo se $v(x,y)$ è soluzione di un'altra equazione differenziale
+$$
+Mv=0
+$$
+Le equazioni $B_i=0$ costituiscono la trasformazione di B$\ddot{\text{a}}$cklund. Nel caso M=L, le trasformazioni di B$\ddot{\text{a}}$cklund costituiscono un'auto-trasformazione.
 
 
 
