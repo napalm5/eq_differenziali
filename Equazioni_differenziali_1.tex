@@ -52,6 +52,7 @@
 \newcommand{\kp}{\bar{k}'}
 \newcommand{\z}{\bar{z}}
 \newcommand{\n}{\bar{n}}
+\newcommand{\Backlund}{B$\ddot{\text{a}}$cklund }
 
 \makeindex
 
@@ -3666,6 +3667,191 @@ $$
 Mv=0
 $$
 Le equazioni $B_i=0$ costituiscono la trasformazione di B$\ddot{\text{a}}$cklund. Nel caso M=L, le trasformazioni di B$\ddot{\text{a}}$cklund costituiscono un'auto-trasformazione.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% inizio lezione 14/12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{L'equazione di Liouville}
+
+$$
+\partial_x\partial_y u = e^u
+$$
+Considero le trasformazioni di \Backlund  date da:
+$$
+\left\{\begin{matrix}
+\partial_x u + \partial_x v = \sqrt{2}e^{\dfrac{u-v}{2}} \\
+\partial_y u - \partial_y v = \sqrt{2}e^{\dfrac{u+v}{2}}
+\end{matrix}\right.
+$$
+Derivando la I rispetto a y e la II rispetto a x otteniamo
+$$
+\left\{\begin{matrix}
+\partial_x\partial_y u + \partial_x \partial_y v = \dfrac{\sqrt{2}}{2}\left(\partial_y u - \partial_y v \right)e^{\dfrac{u-v}{2}} \\
+\partial_x\partial_y u - \partial_x \partial_y v = \dfrac{\sqrt{2}}{2}\left(\partial_x u + \partial_x v \right)e^{\dfrac{u+v}{2}}
+\end{matrix}\right.
+$$
+Riapplicando la trasformazione di \Backlund al 2 membro di entrambe le equazioni otteniamo
+$$
+\left\{\begin{matrix}
+\partial_x\partial_y u + \partial_x \partial_y v = e^u \\
+\partial_x\partial_y u - \partial_x \partial_y v = e^u
+\end{matrix}\right.
+$$
+$$
+I - II \Rightarrow\partial_x\partial_y v=0\quad \text{equazione delle onde}
+$$
+Soluzione generale: $v(x,y)=F(x)+G(y)$, con F,G funzioni arbitrarie.\\
+Dalla soluzione per v andiamo a ricostruire la soluzione per u. Definiamo $z:=u+v$\\
+Utilizzando le trasformazioni di \Backlund e l'equazione $\partial_x \partial_y v=0$, otteniamo
+$$
+\partial_x\partial_y u -\underset{=0}{\underbrace{\partial_x \partial_y v}} = \dfrac{1}{\sqrt{2}}\left(\partial_x u + \partial_x v\right)e^{\dfrac{u+v}{2}}=\dfrac{1}{\sqrt{2}}\partial_x z \cdot e^{\dfrac{z}{2}} (*)
+$$
+$$
+\partial_x\partial_y u = \partial_x \partial_y (z-v)\underset{\partial_x \partial_Y v=0}{\underset{\uparrow}{=}}\partial_x \partial_y z \overset{(*)}{=}\partial_x \left(\sqrt{2}e^{\dfrac{z}{2}}\right)
+$$
+Integriamo rispetto a x e otteniamo
+$$
+\partial_y z = \sqrt{2}e^{\dfrac{z}{2}}+ G_1'(y) (**)
+$$
+con $G_1(y)$ funzione incognita da determinare.\\
+Definizialo $z_1:=z-G_1$
+$$
+\Rightarrow \partial_y z_1 = \partial_y z- \underset{G_1'(y)}{\underbrace{\partial_y G_1}}=\sqrt{2}e^{z/2}
+$$
+In termini di $z_1$, l'equazione (**) diventa
+$$
+\partial_y z_1=\sqrt{2}e^{\frac{z}{2}}=\sqrt{2}e^{\frac{z_1}{2}}e^{\frac{G_1}{2}}
+$$
+Quest'equazione può essere integrata separando le variabili
+$$
+\underset{-2\partial_y\left(e^{-\frac{z_1}{2}} \right)}{\underbrace{e^{-\frac{z_1}{2}}\partial_y z_1}}=\sqrt{2}e^{\frac{G_1}{2}}
+$$
+$$
+\partial_y\left(e^{-\frac{z_1}{2} }\right) = -\dfrac{1}{\sqrt{2}}e^{\frac{G_1}{2}}
+$$
+$$
+e^{-\frac{z_1}{2}}=\dfrac{1}{\sqrt{2}}\left(F_1(x) - \int dy e^{\frac{G_1}{2}}\right)
+$$
+con $F_1(x)$ funzione da determinare.\\
+Deriva quest'equazione rispetto a x:
+$$
+\Rightarrow e^{-\frac{z_1}{2}}\left(-\dfrac{1}{2}\partial_x z_1\right)=\dfrac{1}{\sqrt{2}}F_1'(x) (***)
+$$
+$$
+\Rightarrow \partial_x z_1 = -\sqrt{2}e^{\frac{z_1}{2}}F_1'
+$$
+Deriva questa rispetto a y:
+$$
+\Rightarrow \partial_y \partial_x z_1 = -\dfrac{1}{\sqrt{2}}e^{\frac{z_1}{2}}\partial_y z_1 \cdot F_1' \Rightarrow \partial_x\partial_y z = \dfrac{1}{2}\partial_x z_1 \partial_y z_1
+$$
+Dato che $\partial_x\partial_y u = \partial_x\partial_y z$ possiamo riscrivere l'equazione precedente nel modo
+$$
+\partial_x\partial_y u =\dfrac{1}{2} \partial_x z_1 \partial_y z_1 \overset{(\Delta),(***)}{=} -F_1' e^{z_1 + \frac{G_1}{2}} \underset{z_1=z-G_1=u+v-G_1=u+F+G-G_1}{=} -F_1'e^{u+F+G-\frac{G_1}{2}}
+$$
+Se scegliamo $G_1=2G$ e $F_1=-\int dx e^{-F(x)}$ $(\Rightarrow F_1'=e^{-F} \Rightarrow -F_1' e^F = 1)$, troviamo che u soddisfa l'equazione di Liouville.\\
+Dall'equazione
+$$
+e^{-\frac{z_1}{2}}=\dfrac{1}{\sqrt{2}}\left(F_1(x)-\int dy e^{\frac{G_1}{2}}\right)
+$$
+otteniamo
+$$
+z_1(x,y)=-2\log \left[-\dfrac{\int dx e^{F} + \int dy e^G}{\sqrt{2}} \right]
+$$
+
+Sappiamo che $u=z_1+G-F$ e quindi 
+$$
+u(x,y)=G(y)-F(x) - \log\left(\dfrac{1}{2}\left(\int dx e^{-F(x)} + \int dy e^{G(y)}\right)^2 \right)
+$$
+
+\subsection{Equazione di sine-Gordon}
+$$
+\partial_x\partial_t u = \sin u
+$$
+(Con la trasformazione di coordinate $x \mapsto \dfrac{x+t}{2}, t\mapsto\dfrac{x-t}{2}$ otteniamo $\partial_x^2 u - \partial_t^2 u = \sin u$)\\
+(Paragona con Klein-Gordon $\partial_x\partial_t u = m^2 u$, per assonanza viene chiamata sine-Gordon, esiste anche sinh-Gordon)\\
+-Le trasformazioni di \Backlund sono date da:
+$$
+\left\{
+\begin{matrix}
+\partial_x u + \partial_x v = 2a \sin\left(\dfrac{u-v}{2}\right) \\
+\partial_t u - \partial_t v = \dfrac{2}{a} \sin\left(\dfrac{u+v}{2}\right)
+\end{matrix}
+\right.
+$$
+Analogamente a quanto fatto nel caso dell'equazione di Liouville, deriviamo la I rispetto a t e la II rispetto a x
+$$
+\left\{
+\begin{matrix}
+\partial_t\partial_x u + \partial_t\partial_x v = a (\partial_t u - \partial_t v)\cos\left(\dfrac{u-v}{2}\right)=2\sin \left(\dfrac{u+v}{2}\right) \cos \left(\dfrac{u-v}{2}\right) \\
+\partial_x\partial_t u - \partial_x\partial_t v = \dfrac{2}{a}(\partial_x u + \partial_x v)\cos\left(\dfrac{u+v}{2}\right)=2\sin\left(\dfrac{u-v}{2}\right)\cos\left(\dfrac{u+v}{2}\right)
+\end{matrix}
+\right.
+$$
+usando le formule trigonometriche ottengo
+$$
+I + II \Rightarrow \partial_x\partial_t u = \sin u
+$$
+$$
+I-II \Rightarrow \partial_x\partial_t v=\sin v
+$$
+$\Rightarrow$ in questo caso la trasformazione di \Backlund è un'autotrasformazione.\\
+$\Rightarrow$ se si conosce una soluzione v dell'equazione di sine-Gordon se ne può costruire un'ealtr. Consideriamo quindi la soluzione più banale per v, ovvero $v=0$\\
+$\Rightarrow$ la trasformazione di \Backlund assume la forma
+$$
+\left\{
+\begin{matrix}
+\partial_x u = 2a\sin\left(\dfrac{u}{2}\right) \\
+\partial_t u = \dfrac{2}{a}\sin\left(\dfrac{u}{2}\right)
+\end{matrix}
+\right.
+$$
+Integriamo entrambi separando le variabili. p.e.
+$$
+\dfrac{\partial_x u }{\sin\left(\dfrac{u}{2}\right)}=2a \Rightarrow \int\dfrac{du}{\sin\left(\dfrac{u}{2}\right)}=2\log\left|\tan\dfrac{u}{4}\right| \Rightarrow \partial_x 2\log \left| \tan \dfrac{u}{4}\right|
+$$
+$$
+\Rightarrow \left\{ \begin{matrix}
+\log \left| \tan \dfrac{u}{4}\right|=2ax + f(t) \\
+\log \left| \tan \dfrac{u}{4}\right|= \dfrac{2}{a} t + g(x)
+\end{matrix}
+\right.
+$$
+con $f, g$ funzioni da determinare.
+Perché le due equazioni siano compatibili dobbiamo avere
+$$
+2ax + f(t)=\dfrac{2}{a}t + g(x) \Rightarrow 2ax-g(x)=\dfrac{2}{a}t - f(t)=k \text{ costante}
+$$
+$$
+\Rightarrow 2 \log \left| \tan \dfrac{u}{4}\right| = 2ax + \dfrac{2}{a}t - k
+$$
+$$
+\Rightarrow  \left| \tan \dfrac{u}{4}\right| = e^{-\frac{k}{2}}e^{ax + \frac{1}{a}t}
+$$
+$$
+\tan \dfrac{u}{4} = \underset{=:C}{\underbrace{\pm e^{-\frac{k}{2}}}}e^{ax + \frac{t}{a}}=Ce^{ax + \frac{t}{a}}
+$$
+La soluzione ottenuta è data quindi da
+$$
+u(x,t)=4\arctan \left[Ce^{a\left(x + \frac{t}{a^2}\right)}\right] \qquad (\Box)
+$$
+u ha la struttura di un'onda che si propaga alla velocità $\dfrac{1}{a^2}$ (solitone)\\
+Esericzio: ricavare la $(\Box)$ dall'equazione di sine-Gordon, usando l'ansatz (v. KdV) $u(x,t)=f(\underset{\xi}{\underbrace{x+ct}})$
+$$
+\Rightarrow \partial_x u = \dfrac{df}{d\xi}\dfrac{\partial \xi}{\partial x}=f'(\xi)
+$$
+$$
+\partial_t\partial_xu=\partial_tf'(\xi)=f''(\xi)\underset{c}{\underbrace{\dfrac{\partial \xi}{\partial t}}} = cf''(\xi)
+$$
+$\Rightarrow$ sine-Gordon diventa
+$$
+cf''(\xi)=\sin f | f' \Rightarrow cf''f'=f'\sin f \Rightarrow \dfrac{1}{2}cf'^2 = -\cos f + \underset{\text{cost. di integrazione}}{A}
+$$
+$\rightarrow$ risolvi separando le variabili.\\
+Infine, notiamo che applicando la trasformazione di \Backlund alla soluzioen ottenula, si può ottenere un'altra soluzione. Iterando questo procedimento si possono quindi produrre molti solitoni. Queste soluzioni vengono chiamate multisolitoniche, molto importanti nelle applicazioni nell'ottica nonlineare, come ad esempio le fibre ottiche.
+
+
+
 
 
 

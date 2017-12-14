@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.25)  6 DEC 2017 12:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.25)  14 DEC 2017 10:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -754,18 +754,18 @@ Writing index file Equazioni_differenziali_1.idx
 (./Equazioni_differenziali_1.aux)
 \openout1 = `Equazioni_differenziali_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -801,15 +801,15 @@ LaTeX Font Info:    ... okay on input line 58.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \it@ocap on input line 58.
-LaTeX Info: Redefining \it@ccap on input line 58.
+LaTeX Info: Redefining \it@ocap on input line 59.
+LaTeX Info: Redefining \it@ccap on input line 59.
 
 File italian.ldf warning: 
 italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 58.
+italian.ldf    on input line 59.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -870,23 +870,23 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \celsius on input line 58.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 58.
+LaTeX Info: Redefining \celsius on input line 59.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 59.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 58.
-Package gensymb Info: Using \Omega for \ohm on input line 58.
+LaTeX Info: Redefining \ohm on input line 59.
+Package gensymb Info: Using \Omega for \ohm on input line 59.
 
 Package gensymb Warning: Not defining \micro.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 60.
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 60.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -904,17 +904,17 @@ Capitolo 1.
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
 
@@ -922,7 +922,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--309
 ! Argument of \zap@to@space has an extra }.
 <inserted text> 
                 \par 
-l.333 ...al}{\partial x_i}\right)^{j_i}\dots \left
+l.334 ...al}{\partial x_i}\right)^{j_i}\dots \left
                                                   (\dfrac{\partial}{\partial...
 
 ? 
@@ -931,7 +931,7 @@ Runaway argument?
 ! Paragraph ended before \zap@to@space was complete.
 <to be read again> 
                    \par 
-l.333 ...al}{\partial x_i}\right)^{j_i}\dots \left
+l.334 ...al}{\partial x_i}\right)^{j_i}\dots \left
                                                   (\dfrac{\partial}{\partial...
 
 ? 
@@ -939,21 +939,21 @@ Runaway argument?
 ! Paragraph ended before \macro@ was complete.
 <to be read again> 
                    \par 
-l.333 ...al}{\partial x_i}\right)^{j_i}\dots \left
+l.334 ...al}{\partial x_i}\right)^{j_i}\dots \left
                                                   (\dfrac{\partial}{\partial...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.333 ...al}{\partial x_i}\right)^{j_i}\dots \left
+l.334 ...al}{\partial x_i}\right)^{j_i}\dots \left
                                                   (\dfrac{\partial}{\partial...
 
 ? 
 ! Display math should end with $$.
 <to be read again> 
                    \par 
-l.333 ...al}{\partial x_i}\right)^{j_i}\dots \left
+l.334 ...al}{\partial x_i}\right)^{j_i}\dots \left
                                                   (\dfrac{\partial}{\partial...
 
 ? 
@@ -962,23 +962,23 @@ Runaway argument?
 ! Paragraph ended before \macro@ was complete.
 <to be read again> 
                    \par 
-l.348 
+l.349 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 350--351
 
  []
 
 [7] [8]
 Capitolo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--445
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 
  []
 
 
-Overfull \hbox (1.64932pt too wide) in paragraph at lines 455--459
+Overfull \hbox (1.64932pt too wide) in paragraph at lines 456--460
 \OT1/cmr/m/n/10.95 N.B. an-che l'e-qua-zio-ne di Black-Scholes per il prez-zo d
 i un'op-zio-ne pu^^Ro es-se-re ri-por-ta-to nel-la for-ma (2.3),(2.4). 
  []
@@ -986,7 +986,7 @@ i un'op-zio-ne pu^^Ro es-se-re ri-por-ta-to nel-la for-ma (2.3),(2.4).
 [9
 
 ] [10] [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (286.80638pt too wide) detected at line 988
+Overfull \hbox (286.80638pt too wide) detected at line 989
 [][]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 R[] \OT1/cmr/m/n/10.95 + []\OML/cmm
 /m/it/10.95 R[]\OT1/cmr/m/n/10.95 ) + (\OML/cmm/m/it/10.95 C[] \OMS/cmsy/m/n/10
 .95 ^^@ \OML/cmm/m/it/10.95 C[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 r[] \OT1
@@ -1006,7 +1006,7 @@ Y^^U\OT1/cmr/m/n/10.95 )
  []
 
 
-Overfull \hbox (64.65025pt too wide) detected at line 1038
+Overfull \hbox (64.65025pt too wide) detected at line 1039
 \OT1/cmr/m/n/10.95 (41) \OMS/cmsy/m/n/10.95 ) \OML/cmm/m/it/10.95 \OT1/cmr/m/n
 /10.95 (\OML/cmm/m/it/10.95  \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)\OML
 /cmm/m/it/10.95 x[] [] a[]x[] \OT1/cmr/m/n/10.95 + 2\OML/cmm/m/it/10.95 x[] []
@@ -1019,22 +1019,22 @@ m/n/10.95 + \OML/cmm/m/it/10.95 x[] [] na[]x[] \OT1/cmr/m/n/10.95 + (\OML/cmm/m
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1059
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1123--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1126
 
  []
 
 [20] [21]
-Overfull \hbox (16.72157pt too wide) detected at line 1279
+Overfull \hbox (16.72157pt too wide) detected at line 1280
 \OMS/cmsy/m/n/10.95 ) \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
 .95 x\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [][] [] \OML/cmm/m/it/10.95
  f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^X\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/
@@ -1045,23 +1045,23 @@ mr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^X\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 d^
  []
 
 [22]
-Overfull \hbox (12.81714pt too wide) detected at line 1381
+Overfull \hbox (12.81714pt too wide) detected at line 1382
  []$[] [] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@[] \OT1/cmr/m/n/10.95 = \
 OMS/cmsy/m/n/10.95 ^^@[]  $ 
  []
 
 [23] [24] [25] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1691--1692
+Underfull \hbox (badness 10000) in paragraph at lines 1692--1693
 
  []
 
 [28]
-Overfull \hbox (789.80736pt too wide) detected at line 1712
+Overfull \hbox (789.80736pt too wide) detected at line 1713
 [] [] \OT1/cmr/m/n/10.95 + [] [] []
  []
 
 [29]
-Overfull \hbox (384.09576pt too wide) detected at line 1789
+Overfull \hbox (384.09576pt too wide) detected at line 1790
 \OML/cmm/m/it/10.95 G\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 r; ^^R; '; r[]; ^^
 R[]; '[]\OT1/cmr/m/n/10.95 ) = [] [][]([])[][([])[] \OMS/cmsy/m/n/10.95 ^^@ \OT
 1/cmr/m/n/10.95 ([])[]]\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 ([] \OML/cmm/m
@@ -1074,14 +1074,14 @@ ML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10
  []
 
 [30]
-Overfull \hbox (70.05505pt too wide) detected at line 1844
+Overfull \hbox (70.05505pt too wide) detected at line 1845
 \OML/cmm/m/it/10.95 G\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; y; z; x[]; y[];
  z[]\OT1/cmr/m/n/10.95 ) = [] [][] \OMS/cmsy/m/n/10.95 ^^@ [][] [][] \OT1/cmr/m
 /n/10.95 (91[])
  []
 
 [31]
-Overfull \hbox (7.31761pt too wide) detected at line 1950
+Overfull \hbox (7.31761pt too wide) detected at line 1951
 []\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 ; []; E\OT1/cmr/m/n/10.95 ) = [][] 
 \OML/cmm/m/it/10.95 dte[]G[]\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 ; []; t\O
 T1/cmr/m/n/10.95 ) = [][] \OML/cmm/m/it/10.95 dte[]G[]\OT1/cmr/m/n/10.95 ([]\OM
@@ -1095,7 +1095,7 @@ Capitolo 3.
 [36
 
 ] [37] [38] [39]
-Overfull \hbox (3.87895pt too wide) in paragraph at lines 2418--2434
+Overfull \hbox (3.87895pt too wide) in paragraph at lines 2419--2435
 \OT1/cmr/m/n/10.95 L'esempio so-pra sug-ge-ri-sce di pren-de-re le cur-ve ca-ra
 t-te-ri-sti-che co-me nuo-ve li-nee coor-di-na-te $\OML/cmm/m/it/10.95 ^^X \OT1
 /cmr/m/n/10.95 = \OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
@@ -1103,62 +1103,63 @@ t-te-ri-sti-che co-me nuo-ve li-nee coor-di-na-te $\OML/cmm/m/it/10.95 ^^X \OT1
  []
 
 
-Overfull \hbox (23.41217pt too wide) detected at line 2439
+Overfull \hbox (23.41217pt too wide) detected at line 2440
 \OT1/cmr/m/n/10.95 (117) \OMS/cmsy/m/n/10.95 ) [] [] \OT1/cmr/m/n/10.95 =
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 2516--2519
+Underfull \hbox (badness 10000) in paragraph at lines 2517--2520
 
  []
 
 
-Overfull \hbox (10.31805pt too wide) in paragraph at lines 2527--2541
+Overfull \hbox (10.31805pt too wide) in paragraph at lines 2528--2542
 $[]$\OT1/cmr/m/n/10.95 : un pr-ble-ma al con-tor-no per un equa-zio-ne al-le de
 -ri-va-te par-zia-li di si-ce $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2527--2541
+Underfull \hbox (badness 10000) in paragraph at lines 2528--2542
 
  []
 
 [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 2624--2626
+Underfull \hbox (badness 10000) in paragraph at lines 2625--2627
 
  []
 
 [43]
-Overfull \hbox (13.36154pt too wide) in paragraph at lines 2679--2680
+Overfull \hbox (13.36154pt too wide) in paragraph at lines 2680--2681
 []$[]$\OT1/cmr/m/n/10.95 : una sot-to-va-riet^^Ra di dim n-1 ed equa-zio-ne $\O
 ML/cmm/m/it/10.95 S\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; [] ; x[]\OT1/cm
 r/m/n/10.95 ) = 0$ vie-ne chia-ma-ta $[]$
  []
 
-[44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+[44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
+[59] [60] [61] [62] [63] [64]
 Capitolo 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3493--3495
+Underfull \hbox (badness 10000) in paragraph at lines 3866--3868
 
  []
 
-[58
+[65
 
-] [59] (./Equazioni_differenziali_1.aux) )
-(\end occurred when \iffalse on line 333 was incomplete)
-(\end occurred when \iffalse on line 333 was incomplete)
-(\end occurred when \iffalse on line 333 was incomplete)
-(\end occurred when \ifx on line 333 was incomplete)
-(\end occurred when \ifx on line 333 was incomplete)
-(\end occurred when \ifx on line 333 was incomplete) 
+] [66] (./Equazioni_differenziali_1.aux) )
+(\end occurred when \iffalse on line 334 was incomplete)
+(\end occurred when \iffalse on line 334 was incomplete)
+(\end occurred when \iffalse on line 334 was incomplete)
+(\end occurred when \ifx on line 334 was incomplete)
+(\end occurred when \ifx on line 334 was incomplete)
+(\end occurred when \ifx on line 334 was incomplete) 
 Here is how much of TeX's memory you used:
- 7725 strings out of 493029
- 107707 string characters out of 6136234
- 324736 words of memory out of 5000000
- 11072 multiletter control sequences out of 15000+600000
+ 7726 strings out of 493029
+ 107715 string characters out of 6136234
+ 324755 words of memory out of 5000000
+ 11073 multiletter control sequences out of 15000+600000
  15186 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,21n,92p,1037b,193s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,21n,92p,1037b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
@@ -1177,10 +1178,10 @@ ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on Equazioni_differenziali_1.pdf (60 pages, 447576 bytes).
+Output written on Equazioni_differenziali_1.pdf (67 pages, 474710 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
+ 294 PDF objects out of 1000 (max. 8388607)
+ 204 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
