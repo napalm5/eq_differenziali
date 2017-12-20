@@ -28,4 +28,5 @@
 \contentsline {subsection}{\numberline {3.6.2}Le trasformazioni di B$\mathaccentV {ddot}07F{\textbf {a}}$cklund}{60}
 \contentsline {subsection}{\numberline {3.6.3}L'equazione di Liouville}{61}
 \contentsline {subsection}{\numberline {3.6.4}Equazione di sine-Gordon}{62}
-\contentsline {chapter}{\numberline {4}Carica immagine}{65}
+\contentsline {subsection}{\numberline {3.6.5}Sistemi integrabili e coppie di Lax}{64}
+\contentsline {chapter}{\numberline {4}Carica immagine}{68}
