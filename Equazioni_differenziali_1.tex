@@ -2016,16 +2016,16 @@ $$
 equazioni di Maxwell in materia, sistema CGS:
 \begin{subequations}
 \begin{equation}
-\mathrm{div} \bar{D} = 4\pi \rho_{macr.}(101a)
+\nabla \cdot \bar{D} = 4\pi \rho_{macr.}(101a)
 \end{equation}
 \begin{equation}
-\mathrm{rot} \bar{H}=\dfrac{4\pi}{c}\bar{j}_{macr.} + \dfrac{1}{c}\dfrac{\partial \bar{D}}{\partial t}(101b)
+\nabla \times \bar{H}=\dfrac{4\pi}{c}\bar{j}_{macr.} + \dfrac{1}{c}\dfrac{\partial \bar{D}}{\partial t}(101b)
 \end{equation}
 \begin{equation}
-div\bar{B}=0 (101c)
+\nabla \cdot\bar{B}=0 (101c)
 \end{equation}
 \begin{equation}
-rot\bar{E}=-\dfrac{1}{c}\dfrac{\partial \bar{B}}{\partial t}(101d)
+\nabla \times\bar{E}=-\dfrac{1}{c}\dfrac{\partial \bar{B}}{\partial t}(101d)
 \end{equation}
 \end{subequations}
 Legge di materiale (caso più semplice)
@@ -2040,11 +2040,11 @@ legge di Ohm, $\sigma$ rappresenta la conducibilità elettrica
 \bar{j}_{macr} = \sigma \bar{E}(103)
 \end{equation}
 $$
-(101b)\Rightarrow rot Rot \bar{H}  \dfrac{4\pi}{c}rot \bar{j}_macr + \dfrac{i}{c}\dfrac{\partial}{\partial t}rot \bar{D}
+(101b)\Rightarrow \nabla \times \nabla \times \bar{H}  \dfrac{4\pi}{c}\nabla \times \bar{j}_macr + \dfrac{i}{c}\dfrac{\partial}{\partial t}\nabla \times \bar{D}
 $$
 =0
 $$
-(103),(101d),(101c)\Rightarrow\overbrace{grad div \bar{H}} - \Delta \bar{H} = \dfrac{4\pi\sigma}{c}\underbrace{rot\bar{E}} - \dfrac{\varepsilon}{c^2}\dfrac{\partial^2}{\partial t^2} \bar{B}
+(103),(101d),(101c)\Rightarrow\overbrace{grad \nabla \cdot \bar{H}} - \Delta \bar{H} = \dfrac{4\pi\sigma}{c}\underbrace{\nabla \times\bar{E}} - \dfrac{\varepsilon}{c^2}\dfrac{\partial^2}{\partial t^2} \bar{B}
 $$
 $-\dfrac{1}{c}\dfrac{\partial }{\partial t}\bar{B}$
 \begin{subequations}
@@ -2053,10 +2053,10 @@ $-\dfrac{1}{c}\dfrac{\partial }{\partial t}\bar{B}$
 \end{equation}
 \text{equazione dei telegrafisti}
 $$
-(101d)\Rightarrow rot rot \bar{E} = -\dfrac{1}{c}\dfrac{\partial}{\partial t}rot\bar{B}=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}rot \bar{H}
+(101d)\Rightarrow \nabla \times \nabla \times \bar{E} = -\dfrac{1}{c}\dfrac{\partial}{\partial t}\nabla \times\bar{B}=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}\nabla \times \bar{H}
 $$
 $$
-(101b)=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}\left(\dfrac{4\pi}{c}\sigma \bar{E} + \dfrac{\epsilon}{c}\dfrac{\partial}{\partial t}\bar{E}\right)=grad\underbrace{div \bar{E}} - \Delta \bar{E}
+(101b)=-\dfrac{\mu}{c}\dfrac{\partial}{\partial t}\left(\dfrac{4\pi}{c}\sigma \bar{E} + \dfrac{\epsilon}{c}\dfrac{\partial}{\partial t}\bar{E}\right)=grad\underbrace{\nabla \cdot \bar{E}} - \Delta \bar{E}
 $$
 \text{=0 se $j_{macr}=0$}
 
@@ -2806,7 +2806,7 @@ $$
 $$
 \int_{U}u\Delta \varphi d^nx=\underset{\overset{Gauss}{=}\int_{\partial U}\sum_i u\dfrac{\partial \varphi}{\partial x_i}d^{n-1}S^i}{\underbrace{\int_{U}\sum_{i=1}^n\dfrac{\partial}{\partial x_i}\left(u\dfrac{\partial \varphi}{\partial x_i} \right)d^nx}} - \int_{U} \sum_{i=1}^{n} \dfrac{\partial u}{\partial x_i}\dfrac{\partial \varphi}{\partial x_i}d^nx
 $$
-$\sum_i \dfrac{\partial }{\partial x_i}v_i = div \bar{v}$ posso applicare il teorema di Gauss al primo integrale.
+$\sum_i \dfrac{\partial }{\partial x_i}v_i = \nabla \cdot \bar{v}$ posso applicare il teorema di Gauss al primo integrale.
 $$
 \left| d^{n-1}\vec{S}\right| = \text{elemento di "superficie" (n-1)-dim.}
 $$
