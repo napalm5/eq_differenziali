@@ -1034,14 +1034,19 @@ $$
 $$
 R''(x)=\alpha(\alpha-1)x^{\alpha-2}\sum_na_nx^n + 2\alpha x^{\alpha-1}\sum_n a_n x^{n-1}+x^\alpha\sum_n n(n-1)a_nx^{n-2}
 $$
-$$
-(41)\Rightarrow \alpha(\alpha-1)x^\alpha\sum_n a_n x^n+2\alpha x^\alpha \sum_n n a_n x^n + x^\alpha \sum_n n(n-1)a_n x^n + \alpha x^\alpha\sum_n a_n x^n + x^\alpha \sum_n n a_n x^n + (x^2-m^2)x^\alpha \sum_n a_n x^n=0
-$$
+
+\begin{equation*}
+\begin{split}
+(41)\Rightarrow &\alpha(\alpha-1)x^\alpha\sum_n a_n x^n+2\alpha x^\alpha \sum_n n a_n x^n + x^\alpha \sum_n n(n-1)a_n x^n + \\
+& \alpha x^\alpha\sum_n a_n x^n + x^\alpha \sum_n n a_n x^n + (x^2-m^2)x^\alpha \sum_n a_n x^n=0
+\end{split}
+\end{equation*}
+
 studio il prefattore di $x^0$: $\alpha^2 a_0-m^2a_0=0\Rightarrow \alpha=\pm m$. Scarto la soluzione $\alpha=-m$ perchè non fisica (divergerebbe sull'asse del cilindro).\\
 Soluzione regolare in $x=0: \alpha=m$. In tal caso:
 
 \begin{equation}
-2m\sum_n n a_n x^n + \sum_n n^2 a_n x^n + \sum_n a_n x^{n+2}=0 (43)
+2m\sum_n n a_n x^n + \sum_n n^2 a_n x^n + \sum_n a_n x^{n+2}=0 ~~(43)
 \end{equation}
 
 sostituisco nell'ultimo pezzo $n+2=n'$
@@ -1051,9 +1056,10 @@ $$
 $$
 x^1: 2ma_1+a_1=0 \Rightarrow a_1=0 
 $$
-$\Rightarrow la (43) diventa$
+
+$\Rightarrow$ la (43) diventa:
 \begin{equation}
-\sum_{n=2}^{\infty}x^n(a_n(2mn+n^2)+a_{n-2})=0 \Rightarrow a_n := - \dfrac{a_n-2}{2mn+n^2} (44)
+\sum_{n=2}^{\infty}x^n(a_n(2mn+n^2)+a_{n-2})=0 \Rightarrow a_n := - \dfrac{a_n-2}{2mn+n^2} ~~ (44)
 \end{equation}
 
 $\rightarrow$ relazione di ricorrenza\\
@@ -1093,7 +1099,7 @@ la (47) forma un sistema di funzioni completo nel cilindro $\rightarrow$ qualsia
 \section{Problemi non omogenei}
 spesso la separazione delle variabili riducce delle equazioni differenziali alle derivate parziali a delle equazioni differenziali ordinarie, come p.e.
 \begin{equation}
-a(x)u'' + b(x)u'+c(x)u=f(x) (48)
+a(x)u'' + b(x)u'+c(x)u=F(x) (48)
 \end{equation}
 
 Ipotesi: $a(x)$ continuamente differenziabile; b,c continue. Moltiplica la (48) con $\dfrac{1}{a(x)}exp\left(\int_\alpha^x\dfrac{b(\xi)}{a(\xi)}d\xi\right)$ e definisco
@@ -1126,7 +1132,7 @@ $$
 
 Equazione omogenea: 
 \begin{equation}
-\dfrac{d}{dx}\left(p\dfrac{d}{dx}\right)+qv=0 (50)
+\dfrac{d}{dx}\left(p\dfrac{dv}{dx}\right)+qv=0 (50)
 \end{equation}
 
 possiede 2 soluzioni $v_1, v_2$ linearmente indipendenti $\implies$ soluzione generale:
@@ -1136,7 +1142,7 @@ $$
 
 considera la funzione
 \begin{equation}
-w(x)=v_1(x)\int_\alpha^x v_2(\xi)f(\xi)d\xi - v_2(x)\int_\alpha^x v_1(\xi)f(\xi)d\xi (51)
+w(x)=v_1(x)\int_\alpha^x v_2(\xi)f(\xi)d\xi - v_2(x)\int_\alpha^x v_1(\xi)f(\xi)d\xi ~~(51)
 \end{equation}
 
 (paragona con il metodo della variazione delle costanti)
@@ -1307,13 +1313,13 @@ G(x,\xi)=G(\xi,x) (61)
 \end{equation}
 
 
-per determinare G notiamo che per ogni $\xi$ soddisfa il problma ai valori al contorno
+per determinare G notiamo che per ogni $\xi$ soddisfa il problema ai valori al contorno
 \begin{equation}
 \begin{matrix}
 \dfrac{d}{dx}\left(p(x)\dfrac{dG}{dx}\right) + q(x)G = 0 \quad x\neq \xi \\
 G|_{x=\alpha}=G|_{x=\beta}=0 \\
-G_{x=\xi+0}==G|_{\xi-0} \\
-G continua in \xi \\
+G_{x=\xi+0}=G|_{\xi-0} \\
+G \mathrm{~continua~in~} \xi \\
 \dfrac{dG}{dx}|_{x=\xi+0}-\dfrac{dG}{dx}|_{x=\xi-0}=-\dfrac{1}{p(\xi)}
 \end{matrix} (62)
 \end{equation}
@@ -1875,10 +1881,10 @@ $$
 (92)\Rightarrow -i\partial_t \tilde{\psi}(\kk,t)=\chi (-\kk ^2)\tilde{\psi}(\kk,t)
 $$
 $$
-\Rightarrow \tilde{psi}(\kk,t) = e^{-i\chi\kk t^2}\tilde{\psi}_0(\kk)
+\Rightarrow \tilde{\psi}(\kk,t) = e^{-i\chi\kk t^2}\tilde{\psi}_0(\kk)
 $$
 $$
-\tilde{psi}_0(\kk) = \int d^d \y e^{-i\kk \y} \psi_0(\y)
+\tilde{\psi}_0(\kk) = \int d^d \y e^{-i\kk \y} \psi_0(\y)
 $$
 $$
 \Rightarrow \psi(\x,t) = \dfrac{1}{(2\pi)^d}\int d^d \y \psi_0(\y) \cdot \int d^d\kk e^{i\kk(\x-\y) - i\chi \kk^2 t}
@@ -2010,10 +2016,10 @@ $$
 equazioni di Maxwell in materia, sistema CGS:
 \begin{subequations}
 \begin{equation}
-div \bar{D} = 4\pi \rho_{macr.}(101a)
+\mathrm{div} \bar{D} = 4\pi \rho_{macr.}(101a)
 \end{equation}
 \begin{equation}
-rot \bar{H}=\dfrac{4\pi}{c}\bar{j}_{macr.} + \dfrac{1}{c}\dfrac{\partial \bar{D}}{\partial t}(101b)
+\mathrm{rot} \bar{H}=\dfrac{4\pi}{c}\bar{j}_{macr.} + \dfrac{1}{c}\dfrac{\partial \bar{D}}{\partial t}(101b)
 \end{equation}
 \begin{equation}
 div\bar{B}=0 (101c)
